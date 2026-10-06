@@ -124,13 +124,13 @@ export default function Hero() {
                 className="absolute inset-0 bg-gradient-to-r from-purple-400/20 via-pink-400/15 to-indigo-400/15 blur-3xl rounded-3xl -z-10"
               />
 
-              {/* 3 DTC Ad Showcase Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 items-stretch">
+              {/* 3 DTC Ad Showcase Cards - Perfectly Aligned */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
                 
                 {/* [ VIDEO 01 ] */}
-                <div className="relative flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#180f2b] to-[#0a0513] border border-purple-500/30 p-6 shadow-xl hover:border-pink-400/60 transition-all duration-300 aspect-[9/16] min-h-[340px] sm:min-h-[380px]">
-                  <div className="flex flex-col items-center justify-center space-y-4 text-center my-auto">
-                    <div className="h-14 w-14 rounded-full bg-pink-500/15 border border-pink-400/40 flex items-center justify-center text-pink-400 shadow-md">
+                <div className="relative flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#180f2b] to-[#0a0513] border border-purple-400/30 p-6 shadow-lg hover:border-pink-400/60 transition-all duration-200 aspect-[9/14] w-full">
+                  <div className="flex flex-col items-center justify-center space-y-3.5 text-center my-auto">
+                    <div className="h-13 w-13 rounded-full bg-pink-500/15 border border-pink-400/40 flex items-center justify-center text-pink-400 shadow-md">
                       <Play className="w-6 h-6 fill-current ml-0.5" />
                     </div>
                     <div className="space-y-1">
@@ -143,9 +143,9 @@ export default function Hero() {
                 </div>
 
                 {/* [ VIDEO 02 ] */}
-                <div className="relative flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#20123d] to-[#0e071c] border-2 border-purple-400 p-6 shadow-2xl hover:border-purple-300 transition-all duration-300 aspect-[9/16] min-h-[340px] sm:min-h-[380px] sm:-translate-y-2">
-                  <div className="flex flex-col items-center justify-center space-y-4 text-center my-auto">
-                    <div className="h-14 w-14 rounded-full bg-purple-500/15 border border-purple-400/40 flex items-center justify-center text-purple-300 shadow-md">
+                <div className="relative flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#180f2b] to-[#0a0513] border border-purple-400/30 p-6 shadow-lg hover:border-purple-400/60 transition-all duration-200 aspect-[9/14] w-full">
+                  <div className="flex flex-col items-center justify-center space-y-3.5 text-center my-auto">
+                    <div className="h-13 w-13 rounded-full bg-purple-500/15 border border-purple-400/40 flex items-center justify-center text-purple-300 shadow-md">
                       <Play className="w-6 h-6 fill-current ml-0.5" />
                     </div>
                     <div className="space-y-1">
@@ -158,9 +158,9 @@ export default function Hero() {
                 </div>
 
                 {/* [ VIDEO 03 ] */}
-                <div className="relative flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#0f172a] to-[#060a14] border border-cyan-500/30 p-6 shadow-xl hover:border-cyan-400/60 transition-all duration-300 aspect-[9/16] min-h-[340px] sm:min-h-[380px]">
-                  <div className="flex flex-col items-center justify-center space-y-4 text-center my-auto">
-                    <div className="h-14 w-14 rounded-full bg-cyan-500/15 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-md">
+                <div className="relative flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#180f2b] to-[#0a0513] border border-purple-400/30 p-6 shadow-lg hover:border-cyan-400/60 transition-all duration-200 aspect-[9/14] w-full">
+                  <div className="flex flex-col items-center justify-center space-y-3.5 text-center my-auto">
+                    <div className="h-13 w-13 rounded-full bg-cyan-500/15 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-md">
                       <Play className="w-6 h-6 fill-current ml-0.5" />
                     </div>
                     <div className="space-y-1">
