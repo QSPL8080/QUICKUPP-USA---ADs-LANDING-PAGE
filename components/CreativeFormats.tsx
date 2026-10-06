@@ -16,10 +16,10 @@ export default function CreativeFormats() {
             <span>06 — CREATIVE FORMATS</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-normal text-slate-900">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight tracking-tight text-slate-900">
             CHOOSE YOUR CREATIVE STYLE<br />
-            <span className="font-serif italic font-semibold text-gradient-brand inline-block pr-1.5">
-              ONE STUDIO. MULTIPLE WAYS TO CREATE.
+            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-2 text-[1.1em] tracking-normal">
+              One Studio. Multiple ways to create.
             </span>
           </h2>
 

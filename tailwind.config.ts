@@ -30,9 +30,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Mulish", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-        heading: ["Mulish", "sans-serif"],
-        serif: ["EB Garamond", "Cormorant Garamond", "Georgia", "serif"],
+        sans: ["Mulish", "Plus Jakarta Sans", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        heading: ["Plus Jakarta Sans", "Mulish", "sans-serif"],
+        display: ["Outfit", "Plus Jakarta Sans", "sans-serif"],
+        serif: ["Instrument Serif", "Playfair Display", "EB Garamond", "serif"],
         mono: ["Space Grotesk", "Lexend", "monospace"],
         math: ["KaTeX_Math", "Times New Roman", "serif"],
       },

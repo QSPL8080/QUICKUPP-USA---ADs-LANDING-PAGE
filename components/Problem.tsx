@@ -28,10 +28,10 @@ export default function Problem() {
             <span>CREATIVE FATIGUE IS EXPENSIVE.</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-normal text-slate-900">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight tracking-tight text-slate-900">
             YOUR PRODUCT ISN'T THE PROBLEM.<br />
-            <span className="font-serif italic font-semibold text-gradient-brand inline-block pr-1.5">
-              YOUR CREATIVE VOLUME MIGHT BE.
+            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-2 text-[1.1em] tracking-normal">
+              Your creative volume might be.
             </span>
           </h2>
 

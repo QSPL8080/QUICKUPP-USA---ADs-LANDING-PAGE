@@ -51,11 +51,11 @@ export default function Hero() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold leading-[1.18] tracking-normal text-slate-900">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight text-slate-900">
               CREATE MORE ADS.<br />
               TEST MORE IDEAS.<br />
-              <span className="font-serif italic font-semibold text-gradient-brand inline-block pr-1.5">
-                FIND WHAT WORKS.
+              <span className="font-serif italic font-normal text-gradient-brand inline-block pr-2 text-[1.12em] tracking-normal">
+                Find What Works.
               </span>
             </h1>
 

@@ -52,8 +52,8 @@ export default function FaqSection() {
             <span>11 — FAQ</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-normal text-slate-900">
-            FREQUENTLY ASKED <span className="font-serif italic font-semibold text-gradient-brand">QUESTIONS</span>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight tracking-tight text-slate-900">
+            FREQUENTLY ASKED <span className="font-serif italic font-normal text-gradient-brand inline-block pr-1.5 text-[1.08em] tracking-normal">Questions</span>
           </h2>
         </div>
 
