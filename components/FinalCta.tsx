@@ -25,10 +25,10 @@ export default function FinalCta() {
         </div>
 
         {/* Headline */}
-        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto">
+        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.25] max-w-4xl mx-auto py-1">
           YOUR NEXT WINNING AD<br />
           COULD BE ONE CREATIVE<br />
-          <span className="font-serif italic font-normal text-gradient-brand inline-block pr-2 text-[1.12em] tracking-normal">
+          <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.12em] tracking-normal">
             variation away.
           </span>
         </h2>

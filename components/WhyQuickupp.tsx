@@ -54,9 +54,9 @@ export default function WhyQuickupp() {
             <span>09 — WHY QUICKUPP</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight tracking-tight text-slate-900">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
             WHY QUICKUPP AI STUDIO<br />
-            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-2 text-[1.1em] tracking-normal">
+            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
               More creative. Less production complexity.
             </span>
           </h2>

@@ -33,7 +33,7 @@ const config: Config = {
         sans: ["Mulish", "Plus Jakarta Sans", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
         heading: ["Plus Jakarta Sans", "Mulish", "sans-serif"],
         display: ["Outfit", "Plus Jakarta Sans", "sans-serif"],
-        serif: ["Instrument Serif", "Playfair Display", "EB Garamond", "serif"],
+        serif: ["Playfair Display", "EB Garamond", "Instrument Serif", "serif"],
         mono: ["Space Grotesk", "Lexend", "monospace"],
         math: ["KaTeX_Math", "Times New Roman", "serif"],
       },
