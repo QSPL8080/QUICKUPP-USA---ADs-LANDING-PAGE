@@ -2,7 +2,88 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Check, ChevronRight } from "lucide-react";
+import { ArrowRight, Sparkles, Video, UserCheck, Flame, Palette, User } from "lucide-react";
+
+const formats = [
+  {
+    num: "FORMAT 1",
+    title: "AI UGC",
+    tagline: "Authentic. Social-first. Built for the feed.",
+    desc: "UGC-style creative designed to feel native to platforms like TikTok, Instagram and Meta.",
+    bestFor: [
+      "Beauty & Skincare",
+      "Health & Wellness",
+      "Fashion & Apparel",
+      "Consumer Products",
+    ],
+    icon: Video,
+    accentColor: "text-pink-600 bg-pink-50 border-pink-200",
+    badgeColor: "bg-pink-100 text-pink-800 border-pink-200",
+  },
+  {
+    num: "FORMAT 2",
+    title: "AI AVATAR",
+    tagline: "Consistent presenters without a traditional shoot.",
+    desc: "Create presenter-led videos with AI avatars for product education, demonstrations, explanations and advertising.",
+    bestFor: [
+      "Product education",
+      "Explainer ads",
+      "SaaS",
+      "Consumer products",
+      "Retargeting",
+    ],
+    icon: UserCheck,
+    accentColor: "text-purple-600 bg-purple-50 border-purple-200",
+    badgeColor: "bg-purple-100 text-purple-800 border-purple-200",
+  },
+  {
+    num: "FORMAT 3",
+    title: "AI HYPER-REALISTIC",
+    tagline: "Premium visual storytelling.",
+    desc: "Create realistic, polished video content for brands that need a more elevated visual identity.",
+    bestFor: [
+      "Premium products",
+      "Beauty",
+      "Jewelry",
+      "Fashion",
+      "Lifestyle",
+    ],
+    icon: Flame,
+    accentColor: "text-cyan-600 bg-cyan-50 border-cyan-200",
+    badgeColor: "bg-cyan-100 text-cyan-800 border-cyan-200",
+  },
+  {
+    num: "FORMAT 4",
+    title: "AI CARTOON",
+    tagline: "Make your product impossible to ignore.",
+    desc: "Distinctive visual concepts designed to create pattern interruption and stand out in crowded feeds.",
+    bestFor: [
+      "Creative campaigns",
+      "Product launches",
+      "Social content",
+      "Younger audiences",
+    ],
+    icon: Palette,
+    accentColor: "text-amber-600 bg-amber-50 border-amber-200",
+    badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
+  },
+  {
+    num: "FORMAT 5",
+    title: "AI DIGITAL TWIN",
+    tagline: "Create a consistent digital version of your brand representative.",
+    desc: "Build scalable content around a digital version of a real person. Founders and brand spokespeople can produce infinite videos every month without setting up cameras or spending hours filming.",
+    bestFor: [
+      "Founders",
+      "Creators",
+      "Personal brands",
+      "Recurring content",
+      "Brand spokespersons",
+    ],
+    icon: User,
+    accentColor: "text-emerald-600 bg-emerald-50 border-emerald-200",
+    badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
+  },
+];
 
 export default function CreativeFormats() {
   return (
@@ -24,368 +105,63 @@ export default function CreativeFormats() {
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Select the video production style that fits your brand identity, product line, and marketing channel objectives.
+            Select the video production style that fits your brand identity, product line and marketing channel objectives.
           </p>
         </div>
 
-        {/* 5 Format Cards */}
-        <div className="space-y-8 max-w-6xl mx-auto">
-          
-          {/* FORMAT 1: AI UGC */}
-          <div className="rounded-3xl border border-purple-100 bg-white p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-lg bg-pink-100 text-pink-800 font-mono text-xs font-bold border border-pink-200">
-                  FORMAT 01
-                </span>
-                <span className="text-xs text-slate-500 font-semibold">Social-First • Native Feed</span>
-              </div>
-
-              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900">
-                AI UGC
-              </h3>
-              
-              <p className="text-pink-600 font-bold text-sm sm:text-base">
-                Authentic. Social-first. Built for the feed.
-              </p>
-              
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                UGC-style creative designed to feel native to platforms such as TikTok, Instagram and Meta. Gives your brand rapid social proof without creator ghosting or expensive physical sample shipments.
-              </p>
-
-              <div className="pt-2">
-                <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider block mb-2">
-                  BEST FOR:
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {["Beauty", "Skincare", "Fashion", "Wellness", "Consumer Products"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700"
-                    >
-                      • {tag}
+        {/* 5 Format Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {formats.map((item, idx) => {
+            const Icon = item.icon;
+            const isWide = idx === 3 || idx === 4;
+            return (
+              <div
+                key={item.num}
+                className={`rounded-2xl border border-purple-100 bg-white p-6 sm:p-7 shadow-xs hover:border-purple-300 hover:shadow-md transition-all flex flex-col justify-between ${
+                  isWide && idx === 4 ? "md:col-span-2 lg:col-span-1" : ""
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`px-2.5 py-1 rounded-md font-mono text-xs font-bold border ${item.badgeColor}`}>
+                      {item.num}
                     </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-4">
-                <Link
-                  href="#audit-form"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-pink-600 hover:text-pink-700 transition-colors"
-                >
-                  <span>EXPLORE AI UGC</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="ad-reel-phone max-w-[260px] w-full p-4 flex flex-col justify-between bg-gradient-to-b from-pink-950/90 via-slate-900 to-black border border-pink-500/30">
-                <div className="flex items-center justify-between">
-                  <span className="text-white text-[11px] font-bold">@glow.skincare</span>
-                  <span className="px-1.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 text-[9px] font-bold font-mono">UGC Format</span>
-                </div>
-                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
-                  <div className="h-12 w-12 rounded-full bg-pink-500/20 border border-pink-400/40 flex items-center justify-center text-pink-300 shadow-md">
-                    <Sparkles className="w-5 h-5 text-pink-400" />
+                    <div className={`h-10 w-10 rounded-xl flex items-center justify-center border ${item.accentColor}`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
                   </div>
-                  <span className="text-xs font-bold text-white">AI UGC Testimonial</span>
-                  <span className="text-[10px] text-slate-400">Social-First • Native Hook</span>
+
+                  <h3 className="font-heading text-xl font-bold text-slate-900 mb-1">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-purple-700 font-semibold text-xs sm:text-sm mb-3">
+                    {item.tagline}
+                  </p>
+
+                  <p className="text-slate-600 text-sm leading-relaxed mb-5">
+                    {item.desc}
+                  </p>
                 </div>
-                <div className="bg-pink-600 text-white text-[10px] font-bold p-2 rounded-lg text-center shadow-sm">
-                  Shop Now →
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* FORMAT 2: AI AVATAR */}
-          <div className="rounded-3xl border border-purple-100 bg-white p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-lg bg-purple-100 text-purple-800 font-mono text-xs font-bold border border-purple-200">
-                  FORMAT 02
-                </span>
-                <span className="text-xs text-slate-500 font-semibold">Presenter-Led • High Trust</span>
-              </div>
-
-              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900">
-                AI AVATAR
-              </h3>
-
-              <p className="text-purple-700 font-bold text-sm sm:text-base">
-                Consistent presenters without a traditional shoot.
-              </p>
-
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Create presenter-led videos with AI avatars for product education, demonstrations, explanations and advertising. Perfect for breakdown ads that explain ingredients, differentiators, and guarantees clearly.
-              </p>
-
-              <div className="pt-2">
-                <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider block mb-2">
-                  BEST FOR:
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Product education",
-                    "Explainer ads",
-                    "SaaS",
-                    "Consumer products",
-                    "Retargeting",
-                  ].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700"
-                    >
-                      • {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-4">
-                <Link
-                  href="#audit-form"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-purple-700 hover:text-purple-900 transition-colors"
-                >
-                  <span>EXPLORE AI AVATAR</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="ad-reel-phone max-w-[260px] w-full p-4 flex flex-col justify-between bg-gradient-to-b from-purple-950/90 via-slate-900 to-black border border-purple-500/30">
-                <div className="flex items-center justify-between">
-                  <span className="text-white text-[11px] font-bold">@pure.wellness</span>
-                  <span className="px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-[9px] font-bold font-mono">Avatar Presenter</span>
-                </div>
-                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
-                  <div className="h-12 w-12 rounded-full bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-300 shadow-md">
-                    <Sparkles className="w-5 h-5 text-purple-400" />
-                  </div>
-                  <span className="text-xs font-bold text-white">Presenter Breakdown</span>
-                  <span className="text-[10px] text-slate-400">High Trust • Education</span>
-                </div>
-                <div className="bg-purple-600 text-white text-[10px] font-bold p-2 rounded-lg text-center shadow-sm">
-                  Learn More →
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* FORMAT 3: AI HYPER-REALISTIC */}
-          <div className="rounded-3xl border border-purple-100 bg-white p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-lg bg-cyan-100 text-cyan-800 font-mono text-xs font-bold border border-cyan-200">
-                  FORMAT 03
-                </span>
-                <span className="text-xs text-slate-500 font-semibold">Elevated Aesthetic • Luxury</span>
-              </div>
-
-              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900">
-                AI HYPER-REALISTIC
-              </h3>
-
-              <p className="text-cyan-700 font-bold text-sm sm:text-base">
-                Premium visual storytelling.
-              </p>
-
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Create realistic, polished video content for brands that need a more elevated visual identity. 3D studio environments, liquid physics, close-up textures, and cinematic lighting angles.
-              </p>
-
-              <div className="pt-2">
-                <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider block mb-2">
-                  BEST FOR:
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {["Premium products", "Beauty", "Jewelry", "Fashion", "Lifestyle"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700"
-                    >
-                      • {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-4">
-                <Link
-                  href="#audit-form"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-cyan-700 hover:text-cyan-900 transition-colors"
-                >
-                  <span>EXPLORE HYPER-REALISTIC</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="ad-reel-phone max-w-[260px] w-full p-4 flex flex-col justify-between bg-gradient-to-b from-cyan-950/90 via-slate-900 to-black border border-cyan-500/30">
-                <div className="flex items-center justify-between">
-                  <span className="text-white text-[11px] font-bold">@lumina.jewelry</span>
-                  <span className="px-1.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-[9px] font-bold font-mono">Hyper-Real</span>
-                </div>
-                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
-                  <div className="h-12 w-12 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-md">
-                    <Sparkles className="w-5 h-5 text-cyan-400" />
-                  </div>
-                  <span className="text-xs font-bold text-white">Cinematic 3D Lighting</span>
-                  <span className="text-[10px] text-slate-400">Liquid Physics & Textures</span>
-                </div>
-                <div className="bg-cyan-600 text-white text-[10px] font-bold p-2 rounded-lg text-center shadow-sm">
-                  Discover Collection →
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* FORMAT 4: AI CARTOON */}
-          <div className="rounded-3xl border border-purple-100 bg-white p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-lg bg-amber-100 text-amber-800 font-mono text-xs font-bold border border-amber-200">
-                  FORMAT 04
-                </span>
-                <span className="text-xs text-slate-500 font-semibold">Pattern Interrupt • Standout</span>
-              </div>
-
-              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900">
-                AI CARTOON
-              </h3>
-
-              <p className="text-amber-700 font-bold text-sm sm:text-base">
-                Make your product impossible to ignore.
-              </p>
-
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Distinctive visual concepts designed to create pattern interruption and stand out in crowded feeds. Ideal for product launches, analogies, and younger demographic engagement.
-              </p>
-
-              <div className="pt-2">
-                <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider block mb-2">
-                  BEST FOR:
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {["Creative campaigns", "Product launches", "Social content", "Younger audiences"].map(
-                    (tag) => (
+                <div className="pt-4 border-t border-slate-100">
+                  <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider block mb-2">
+                    BEST FOR
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.bestFor.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700"
+                        className="px-2.5 py-1 rounded-md bg-slate-100/80 text-slate-700 text-xs font-medium"
                       >
                         • {tag}
                       </span>
-                    )
-                  )}
-                </div>
-              </div>
-
-              <div className="pt-4">
-                <Link
-                  href="#audit-form"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-amber-700 hover:text-amber-900 transition-colors"
-                >
-                  <span>EXPLORE AI CARTOON</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="ad-reel-phone max-w-[260px] w-full p-4 flex flex-col justify-between bg-gradient-to-b from-amber-950/90 via-slate-900 to-black border border-amber-500/30">
-                <div className="flex items-center justify-between">
-                  <span className="text-white text-[11px] font-bold">@splash.creative</span>
-                  <span className="px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[9px] font-bold font-mono">Animated</span>
-                </div>
-                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
-                  <div className="h-12 w-12 rounded-full bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-300 shadow-md">
-                    <Sparkles className="w-5 h-5 text-amber-400" />
+                    ))}
                   </div>
-                  <span className="text-xs font-bold text-white">3D Cartoon Interrupt</span>
-                  <span className="text-[10px] text-slate-400">High Hook Rate</span>
-                </div>
-                <div className="bg-amber-600 text-white text-[10px] font-bold p-2 rounded-lg text-center shadow-sm">
-                  View Animated Ad →
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* FORMAT 5: AI DIGITAL TWIN */}
-          <div className="rounded-3xl border border-purple-100 bg-white p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 font-mono text-xs font-bold border border-emerald-200">
-                  FORMAT 05
-                </span>
-                <span className="text-xs text-slate-500 font-semibold">Founder Scale • Consistency</span>
-              </div>
-
-              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900">
-                AI DIGITAL TWIN
-              </h3>
-
-              <p className="text-emerald-700 font-bold text-sm sm:text-base">
-                Create a consistent digital version of your brand representative.
-              </p>
-
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Build scalable content around a digital version of a real person. Founders and brand spokespeople can produce infinite videos every month without setting up cameras or spending hours filming.
-              </p>
-
-              <div className="pt-2">
-                <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider block mb-2">
-                  BEST FOR:
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {["Founders", "Creators", "Personal brands", "Recurring content", "Brand spokespersons"].map(
-                    (tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700"
-                      >
-                        • {tag}
-                      </span>
-                    )
-                  )}
-                </div>
-              </div>
-
-              <div className="pt-4">
-                <Link
-                  href="#audit-form"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700 hover:text-emerald-900 transition-colors"
-                >
-                  <span>EXPLORE DIGITAL TWIN</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="ad-reel-phone max-w-[260px] w-full p-4 flex flex-col justify-between bg-gradient-to-b from-emerald-950/90 via-slate-900 to-black border border-emerald-500/30">
-                <div className="flex items-center justify-between">
-                  <span className="text-white text-[11px] font-bold">@founder.twin</span>
-                  <span className="px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[9px] font-bold font-mono">Digital Twin</span>
-                </div>
-                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
-                  <div className="h-12 w-12 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-300 shadow-md">
-                    <Sparkles className="w-5 h-5 text-emerald-400" />
-                  </div>
-                  <span className="text-xs font-bold text-white">AI Founder Clone</span>
-                  <span className="text-[10px] text-slate-400">Zero Filming Needed</span>
-                </div>
-                <div className="bg-emerald-600 text-white text-[10px] font-bold p-2 rounded-lg text-center shadow-sm">
-                  Follow Story →
-                </div>
-              </div>
-            </div>
-          </div>
-
+            );
+          })}
         </div>
 
       </div>
