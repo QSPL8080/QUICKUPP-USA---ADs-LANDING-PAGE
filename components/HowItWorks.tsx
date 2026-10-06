@@ -58,9 +58,9 @@ export default function HowItWorks() {
             <span>OUR CREATIVE PROCESS</span>
           </span>
 
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-slate-900">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-normal text-slate-900">
             FROM PRODUCT<br />
-            <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">
+            <span className="font-serif italic font-semibold text-gradient-brand inline-block pr-1.5">
               TO PERFORMANCE-READY CREATIVE.
             </span>
           </h2>

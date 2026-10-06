@@ -145,8 +145,8 @@ export default function VideoShowcase() {
             <Film className="w-3.5 h-3.5 text-purple-600" />
             <span>05 — VIDEO SHOWCASE</span>
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900">
-            CONVERTING VIDEO ADS <span className="font-serif italic font-bold text-gradient-brand">IN ACTION</span>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
+            CONVERTING VIDEO ADS <span className="font-serif italic font-semibold text-gradient-brand">IN ACTION</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
             Explore conversion-focused DTC ad examples engineered for high ROAS on short-form video feeds.

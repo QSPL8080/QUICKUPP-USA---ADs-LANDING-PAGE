@@ -30,7 +30,7 @@ export default function LeadForm() {
               <span>15 — LEAD FORM</span>
             </span>
 
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900">
+            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-slate-900">
               Claim Your Free DTC Creative Audit & <span className="text-gradient-brand">Ad Blueprint</span>
             </h2>
 

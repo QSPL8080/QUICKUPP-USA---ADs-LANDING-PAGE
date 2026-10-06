@@ -50,9 +50,9 @@ export default function ComparisonTable() {
             <span>10 — CREATIVE COMPARISON</span>
           </span>
 
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-slate-900">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-normal text-slate-900">
             TRADITIONAL PRODUCTION VS.<br />
-            <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">
+            <span className="font-serif italic font-semibold text-gradient-brand inline-block pr-1.5">
               AI CREATIVE PRODUCTION
             </span>
           </h2>
