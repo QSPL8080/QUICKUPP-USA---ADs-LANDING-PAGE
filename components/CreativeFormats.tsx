@@ -81,22 +81,20 @@ export default function CreativeFormats() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="ad-reel-phone max-w-[260px] w-full">
-                <video
-                  poster="https://quickuppaistudio.us/videos/posters/UGC%20Sample.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                >
-                  <source src="https://quickuppaistudio.us/videos/HERO%20VIDEO%20NEW.mp4" type="video/mp4" />
-                </video>
-                <div className="absolute inset-0 pointer-events-none p-3 flex flex-col justify-between bg-gradient-to-b from-black/50 via-transparent to-black/80">
+              <div className="ad-reel-phone max-w-[260px] w-full p-4 flex flex-col justify-between bg-gradient-to-b from-pink-950/90 via-slate-900 to-black border border-pink-500/30">
+                <div className="flex items-center justify-between">
                   <span className="text-white text-[11px] font-bold">@glow.skincare</span>
-                  <div className="bg-pink-600 text-white text-[10px] font-bold p-1.5 rounded text-center">
-                    Shop Now →
+                  <span className="px-1.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 text-[9px] font-bold font-mono">UGC Format</span>
+                </div>
+                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
+                  <div className="h-12 w-12 rounded-full bg-pink-500/20 border border-pink-400/40 flex items-center justify-center text-pink-300 shadow-md">
+                    <Sparkles className="w-5 h-5 text-pink-400" />
                   </div>
+                  <span className="text-xs font-bold text-white">AI UGC Testimonial</span>
+                  <span className="text-[10px] text-slate-400">Social-First • Native Hook</span>
+                </div>
+                <div className="bg-pink-600 text-white text-[10px] font-bold p-2 rounded-lg text-center shadow-sm">
+                  Shop Now →
                 </div>
               </div>
             </div>
@@ -158,22 +156,20 @@ export default function CreativeFormats() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="ad-reel-phone max-w-[260px] w-full">
-                <video
-                  poster="https://quickuppaistudio.us/videos/posters/HERO%20VIDEO%20NEW.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                >
-                  <source src="https://quickuppaistudio.us/videos/HERO%20VIDEO%20NEW.mp4" type="video/mp4" />
-                </video>
-                <div className="absolute inset-0 pointer-events-none p-3 flex flex-col justify-between bg-gradient-to-b from-black/50 via-transparent to-black/80">
+              <div className="ad-reel-phone max-w-[260px] w-full p-4 flex flex-col justify-between bg-gradient-to-b from-purple-950/90 via-slate-900 to-black border border-purple-500/30">
+                <div className="flex items-center justify-between">
                   <span className="text-white text-[11px] font-bold">@pure.wellness</span>
-                  <div className="bg-purple-600 text-white text-[10px] font-bold p-1.5 rounded text-center">
-                    Learn More →
+                  <span className="px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-[9px] font-bold font-mono">Avatar Presenter</span>
+                </div>
+                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
+                  <div className="h-12 w-12 rounded-full bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-300 shadow-md">
+                    <Sparkles className="w-5 h-5 text-purple-400" />
                   </div>
+                  <span className="text-xs font-bold text-white">Presenter Breakdown</span>
+                  <span className="text-[10px] text-slate-400">High Trust • Education</span>
+                </div>
+                <div className="bg-purple-600 text-white text-[10px] font-bold p-2 rounded-lg text-center shadow-sm">
+                  Learn More →
                 </div>
               </div>
             </div>
@@ -229,17 +225,20 @@ export default function CreativeFormats() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="ad-reel-phone max-w-[260px] w-full">
-                <img
-                  src="/images/Digital Twin Image.png"
-                  alt="Hyper-Realistic"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 pointer-events-none p-3 flex flex-col justify-between bg-gradient-to-b from-black/50 via-transparent to-black/80">
+              <div className="ad-reel-phone max-w-[260px] w-full p-4 flex flex-col justify-between bg-gradient-to-b from-cyan-950/90 via-slate-900 to-black border border-cyan-500/30">
+                <div className="flex items-center justify-between">
                   <span className="text-white text-[11px] font-bold">@lumina.jewelry</span>
-                  <div className="bg-cyan-600 text-white text-[10px] font-bold p-1.5 rounded text-center">
-                    Discover Collection →
+                  <span className="px-1.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-[9px] font-bold font-mono">Hyper-Real</span>
+                </div>
+                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
+                  <div className="h-12 w-12 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-md">
+                    <Sparkles className="w-5 h-5 text-cyan-400" />
                   </div>
+                  <span className="text-xs font-bold text-white">Cinematic 3D Lighting</span>
+                  <span className="text-[10px] text-slate-400">Liquid Physics & Textures</span>
+                </div>
+                <div className="bg-cyan-600 text-white text-[10px] font-bold p-2 rounded-lg text-center shadow-sm">
+                  Discover Collection →
                 </div>
               </div>
             </div>
@@ -297,10 +296,21 @@ export default function CreativeFormats() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="ad-reel-phone max-w-[260px] w-full bg-gradient-to-br from-amber-500 to-purple-900 p-4 flex flex-col items-center justify-center text-center text-white">
-                <Sparkles className="w-12 h-12 text-amber-300 animate-bounce mb-2" />
-                <span className="font-bold text-sm">3D Cartoon & Animated Ads</span>
-                <span className="text-[11px] text-amber-100 mt-1">High retention pattern interrupt</span>
+              <div className="ad-reel-phone max-w-[260px] w-full p-4 flex flex-col justify-between bg-gradient-to-b from-amber-950/90 via-slate-900 to-black border border-amber-500/30">
+                <div className="flex items-center justify-between">
+                  <span className="text-white text-[11px] font-bold">@splash.creative</span>
+                  <span className="px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[9px] font-bold font-mono">Animated</span>
+                </div>
+                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
+                  <div className="h-12 w-12 rounded-full bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-300 shadow-md">
+                    <Sparkles className="w-5 h-5 text-amber-400" />
+                  </div>
+                  <span className="text-xs font-bold text-white">3D Cartoon Interrupt</span>
+                  <span className="text-[10px] text-slate-400">High Hook Rate</span>
+                </div>
+                <div className="bg-amber-600 text-white text-[10px] font-bold p-2 rounded-lg text-center shadow-sm">
+                  View Animated Ad →
+                </div>
               </div>
             </div>
           </div>
@@ -357,17 +367,20 @@ export default function CreativeFormats() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="ad-reel-phone max-w-[260px] w-full">
-                <img
-                  src="/images/Digital Twin Image.png"
-                  alt="Digital Twin"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 pointer-events-none p-3 flex flex-col justify-between bg-gradient-to-b from-black/50 via-transparent to-black/80">
+              <div className="ad-reel-phone max-w-[260px] w-full p-4 flex flex-col justify-between bg-gradient-to-b from-emerald-950/90 via-slate-900 to-black border border-emerald-500/30">
+                <div className="flex items-center justify-between">
                   <span className="text-white text-[11px] font-bold">@founder.twin</span>
-                  <div className="bg-emerald-600 text-white text-[10px] font-bold p-1.5 rounded text-center">
-                    Follow Story →
+                  <span className="px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[9px] font-bold font-mono">Digital Twin</span>
+                </div>
+                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
+                  <div className="h-12 w-12 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-300 shadow-md">
+                    <Sparkles className="w-5 h-5 text-emerald-400" />
                   </div>
+                  <span className="text-xs font-bold text-white">AI Founder Clone</span>
+                  <span className="text-[10px] text-slate-400">Zero Filming Needed</span>
+                </div>
+                <div className="bg-emerald-600 text-white text-[10px] font-bold p-2 rounded-lg text-center shadow-sm">
+                  Follow Story →
                 </div>
               </div>
             </div>

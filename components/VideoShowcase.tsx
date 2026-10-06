@@ -223,70 +223,48 @@ export default function VideoShowcase() {
           </button>
         </div>
 
-        {/* Ad Video Cards Grid */}
+        {/* Ad Video Cards Grid (No external video/image dependencies) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {filteredAds.map((ad) => (
             <div
               key={ad.id}
-              className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm hover:shadow-lg hover:border-purple-300 transition-all flex flex-col justify-between"
+              className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm hover:shadow-lg hover:border-purple-300 transition-all flex flex-col justify-between group"
             >
               {/* Ad Mockup Frame */}
-              <div className="ad-reel-phone w-full relative">
-                {ad.type === "video" ? (
-                  <video
-                    poster={ad.poster}
-                    autoPlay
-                    loop
-                    muted={mutedStates[ad.id] ?? true}
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
-                    <source src={ad.src} type="video/mp4" />
-                  </video>
-                ) : (
-                  <img src={ad.src} alt={ad.title} className="w-full h-full object-cover" />
-                )}
-
-                {/* Simulated Social Ad Interface */}
-                <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-3 bg-gradient-to-b from-black/60 via-transparent to-black/85 z-10">
-                  <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-1.5 text-white text-[11px] font-bold">
-                      <span className="w-4 h-4 rounded-full bg-purple-500 flex items-center justify-center text-[9px]">Q</span>
-                      <span>{ad.sponsor}</span>
-                    </span>
-                    <span className="px-1.5 py-0.5 rounded-full bg-emerald-500/30 text-emerald-300 border border-emerald-400/40 text-[9px] font-bold font-mono">
-                      {ad.metric}
-                    </span>
-                  </div>
-
-                  <div className="space-y-1.5 pointer-events-auto">
-                    <div className="bg-black/70 backdrop-blur-md rounded-lg p-2 border border-white/10 text-[10px] text-white">
-                      <span className="font-bold text-purple-300">{ad.title}</span>
-                    </div>
-                    <div
-                      className={`flex items-center justify-between p-1.5 px-2 rounded-md text-white font-bold text-[10px] shadow-sm ${ad.ctaColor}`}
-                    >
-                      <span>{ad.ctaText}</span>
-                      <ChevronRight className="w-3 h-3" />
-                    </div>
-                  </div>
+              <div className="ad-reel-phone w-full relative p-4 flex flex-col justify-between bg-gradient-to-b from-slate-900 via-purple-950/80 to-black border border-purple-400/30">
+                
+                {/* Top Bar */}
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-1.5 text-white text-[11px] font-bold">
+                    <span className="w-4 h-4 rounded-full bg-purple-500 flex items-center justify-center text-[9px]">Q</span>
+                    <span>{ad.sponsor}</span>
+                  </span>
+                  <span className="px-1.5 py-0.5 rounded-full bg-emerald-500/30 text-emerald-300 border border-emerald-400/40 text-[9px] font-bold font-mono">
+                    {ad.metric}
+                  </span>
                 </div>
 
-                {/* Sound Toggle (for videos) */}
-                {ad.type === "video" && (
-                  <button
-                    type="button"
-                    onClick={(e) => toggleMute(ad.id, e)}
-                    className="absolute top-2.5 right-2.5 z-20 bg-black/80 text-white p-1 rounded-full border border-white/20 hover:bg-purple-600 transition-all"
-                    aria-label="Toggle sound"
+                {/* Center Graphic */}
+                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
+                  <div className="h-12 w-12 rounded-full bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-300 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all shadow-lg">
+                    <Play className="w-5 h-5 fill-current ml-0.5" />
+                  </div>
+                  <span className="text-xs font-bold text-white tracking-wide">{ad.badge}</span>
+                  <span className="text-[10px] text-slate-400">{ad.platform}</span>
+                </div>
+
+                {/* Native Ad Callout */}
+                <div className="space-y-1.5">
+                  <div className="bg-black/70 backdrop-blur-md rounded-lg p-2 border border-white/10 text-[10px] text-white">
+                    <span className="font-bold text-purple-300">{ad.title}</span>
+                  </div>
+                  <div
+                    className={`flex items-center justify-between p-1.5 px-2 rounded-md text-white font-bold text-[10px] shadow-sm ${ad.ctaColor}`}
                   >
-                    {mutedStates[ad.id] ?? true ? (
-                      <VolumeX className="w-3 h-3 text-red-400" />
-                    ) : (
-                      <Volume2 className="w-3 h-3 text-emerald-400" />
-                    )}
-                  </button>
-                )}
+                    <span>{ad.ctaText}</span>
+                    <ChevronRight className="w-3 h-3" />
+                  </div>
+                </div>
               </div>
 
               {/* Card Bottom Meta */}
