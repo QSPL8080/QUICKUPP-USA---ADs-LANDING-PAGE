@@ -46,11 +46,8 @@ export default function Solution() {
                 MORE HOOKS
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Different opening angles designed to stop the scroll in the first 3 seconds, lower your cost per view, and capture immediate buyer attention.
+                Different opening angles designed to stop the scroll.
               </p>
-            </div>
-            <div className="mt-6 pt-3 border-t border-purple-100 text-[11px] font-mono font-bold text-purple-600">
-              Pattern Interrupts • Problem Hooks • Curiosity
             </div>
           </div>
 
@@ -69,11 +66,8 @@ export default function Solution() {
                 MORE CONCEPTS
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Different creative ideas built around the same product—from unboxings and tutorials to comparison ads and emotional transformations.
+                Different creative ideas built around the same product.
               </p>
-            </div>
-            <div className="mt-6 pt-3 border-t border-pink-100 text-[11px] font-mono font-bold text-pink-600">
-              Unboxings • Comparisons • Routine Demos
             </div>
           </div>
 
@@ -92,11 +86,8 @@ export default function Solution() {
                 MORE FORMATS
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                UGC, avatar, product-focused, lifestyle, cinematic and more to find the exact visual style that resonates with each consumer segment.
+                UGC, avatar, product-focused, lifestyle, cinematic and more.
               </p>
-            </div>
-            <div className="mt-6 pt-3 border-t border-cyan-100 text-[11px] font-mono font-bold text-cyan-700">
-              AI UGC • AI Avatar • Hyper-Realistic • Twin
             </div>
           </div>
 
@@ -115,11 +106,8 @@ export default function Solution() {
                 MORE VARIATIONS
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Test different messaging, visuals, offers, CTAs, voiceovers and storytelling angles without booking a new production shoot every time.
+                Test different messaging, visuals, offers and storytelling.
               </p>
-            </div>
-            <div className="mt-6 pt-3 border-t border-emerald-100 text-[11px] font-mono font-bold text-emerald-700">
-              A/B Copy • Voice Accents • Offer Swaps
             </div>
           </div>
 
@@ -138,17 +126,16 @@ export default function Solution() {
                 MORE OPPORTUNITIES TO WIN
               </h3>
               <p className="text-sm sm:text-base text-purple-100 leading-relaxed">
-                Give your advertising team and media buyers more creative options to test continuously, scale winning campaigns, and lower customer acquisition costs.
+                Give your advertising team more creative options to test.
               </p>
             </div>
             <div className="mt-6 pt-3 border-t border-purple-800/80 flex items-center justify-between">
-              <span className="text-xs font-mono text-purple-300 font-bold">Scale ROAS • Beat Ad Fatigue</span>
+              <span className="text-xs font-mono text-purple-300 font-bold">Quickupp AI Studio</span>
               <Link
                 href="#audit-form"
                 className="text-xs font-bold text-pink-300 hover:text-white inline-flex items-center gap-1 transition-colors"
               >
-                <span>Start Testing</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>GET YOUR FREE AUDIT →</span>
               </Link>
             </div>
           </div>

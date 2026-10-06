@@ -95,22 +95,6 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Highlight Badges */}
-            <div className="pt-4 border-t border-slate-200/80 w-full flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-600">
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-                48H Fast Turnaround
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-purple-500"></span>
-                Meta, TikTok & Reels Ready
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-pink-500"></span>
-                Starting at $79 / AI Video
-              </span>
-            </div>
-
           </div>
 
           {/* Right Hero DTC Ad Showcase (6 cols) */}
