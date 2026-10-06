@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { AlertCircle, Check, X, Sparkles, Sigma, FunctionSquare } from "lucide-react";
+import { AlertCircle, Check, X, Sparkles } from "lucide-react";
 
 export default function Problem() {
   return (
@@ -53,32 +53,6 @@ export default function Problem() {
           </div>
         </div>
 
-        {/* LaTeX Math Formulation Box (Interesting Mathematical Proof) */}
-        <div className="max-w-3xl mx-auto mb-14 rounded-2xl p-5 sm:p-6 latex-equation-box text-slate-900 border">
-          <div className="flex items-center justify-between pb-3 mb-3 border-b border-purple-200/60">
-            <div className="flex items-center gap-2">
-              <FunctionSquare className="w-4 h-4 text-purple-700" />
-              <span className="font-mono text-xs font-bold uppercase tracking-wider text-purple-900">
-                \text&#123;The Creative Velocity Theorem&#125;
-              </span>
-            </div>
-            <span className="latex-code-pill px-2.5 py-0.5 rounded text-[11px] font-bold">
-              LaTeX Formulation
-            </span>
-          </div>
-
-          <div className="text-center py-2 space-y-2 font-serif text-base sm:text-lg">
-            <div className="overflow-x-auto py-1">
-              <span className="text-purple-950 font-bold tracking-wide">
-                $$\mathcal&#123;P&#125;(\text&#123;Winning Ad&#125;) = 1 - (1 - \theta)^n, \quad n = \text&#123;Creative Variations Produced&#125;$$
-              </span>
-            </div>
-            <p className="font-sans text-xs text-slate-600 italic">
-              As tested variations \(n \uparrow\), the probability of finding a high-ROAS creative approaches \(100\%\), while traditional fixed budgets decay due to creative fatigue \(\mathcal&#123;C&#125;_\text&#123;fatigue&#125;\).
-            </p>
-          </div>
-        </div>
-
         {/* Split-Screen Comparison */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
           
@@ -90,8 +64,8 @@ export default function Problem() {
                   <span className="text-[10px] font-mono uppercase tracking-widest text-rose-600 font-bold">LEFT</span>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900">TRADITIONAL PRODUCTION</h3>
                 </div>
-                <span className="latex-code-pill px-2.5 py-0.5 rounded text-[11px] font-bold text-rose-700 bg-rose-100 border-rose-300">
-                  n = 1 \text&#123; (Slow)&#125;
+                <span className="px-3 py-1 rounded-full text-xs font-bold text-rose-700 bg-rose-100 border border-rose-300">
+                  Slow & Fragmented
                 </span>
               </div>
 
@@ -141,8 +115,8 @@ export default function Problem() {
                     <Sparkles className="w-4 h-4 text-purple-600" />
                   </h3>
                 </div>
-                <span className="latex-code-pill px-2.5 py-0.5 rounded text-[11px] font-bold text-emerald-800 bg-emerald-100 border-emerald-300">
-                  n \to \infty \text&#123; (Scale)&#125;
+                <span className="px-3 py-1 rounded-full text-xs font-bold text-emerald-800 bg-emerald-100 border border-emerald-300">
+                  Fast & Scalable
                 </span>
               </div>
 
