@@ -50,7 +50,7 @@ export default function ComparisonTable() {
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14">
           <span className="eyebrow text-[11px] sm:text-xs">
             <Scale className="w-3.5 h-3.5 text-purple-600" />
-            <span>10 — Creative Comparison</span>
+            <span>Creative Comparison</span>
           </span>
 
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold !leading-[1.2] tracking-tight text-slate-900">

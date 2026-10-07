@@ -62,7 +62,7 @@ export default function BuiltForDTC() {
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
           <span className="eyebrow text-[11px] sm:text-xs">
             <Store className="w-3.5 h-3.5 text-purple-600" />
-            <span>08 — Built for DTC</span>
+            <span>Built for DTC</span>
           </span>
 
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold !leading-[1.2] tracking-tight text-slate-900">
@@ -81,18 +81,18 @@ export default function BuiltForDTC() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5 max-w-6xl 3xl:max-w-7xl mx-auto">
           {industries.map((item, idx) => {
             const Icon = item.icon;
-            const isLast = idx === 6;
+            const isLast = idx === 6; // wide card: photo left, text right from 640px up
             return (
               <div
                 key={item.title}
-                className={`overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 lg:p-6 shadow-xs hover:border-purple-300 hover:shadow-md transition-all group ${
-                  isLast ? "sm:col-span-2 lg:col-span-3 xl:col-span-2 sm:flex sm:items-stretch sm:p-0 lg:p-0" : ""
+                className={`group flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs hover:border-purple-300 hover:shadow-md transition-all ${
+                  isLast ? "sm:col-span-2 lg:col-span-3 xl:col-span-2 sm:flex-row" : ""
                 }`}
               >
-                {/* Photo: 16:10 on top, or a side panel on the wide card */}
+                {/* Photo */}
                 <div
-                  className={`relative -mx-5 -mt-5 lg:-mx-6 lg:-mt-6 mb-4 aspect-[16/10] overflow-hidden bg-slate-100 ${
-                    isLast ? "sm:m-0 lg:m-0 sm:aspect-auto sm:w-[45%] sm:min-h-[200px] sm:shrink-0" : ""
+                  className={`relative shrink-0 overflow-hidden bg-slate-100 aspect-[16/10] ${
+                    isLast ? "sm:aspect-auto sm:w-[45%] sm:min-h-[220px]" : ""
                   }`}
                 >
                   <StockPhoto
@@ -106,11 +106,13 @@ export default function BuiltForDTC() {
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>
-                <div className={isLast ? "sm:flex sm:flex-col sm:justify-center sm:p-6 lg:p-8" : ""}>
-                  <h3 className="font-heading text-sm sm:text-base font-bold text-slate-900 mb-1.5">
+
+                {/* Text */}
+                <div className={`flex-1 p-5 lg:p-6 ${isLast ? "sm:flex sm:flex-col sm:justify-center sm:px-8 sm:py-7" : ""}`}>
+                  <h3 className={`font-heading font-bold text-slate-900 mb-1.5 ${isLast ? "text-sm sm:text-lg" : "text-sm sm:text-base"}`}>
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className={`text-slate-600 leading-relaxed ${isLast ? "text-xs sm:text-sm max-w-md" : "text-xs"}`}>
                     {item.desc}
                   </p>
                 </div>

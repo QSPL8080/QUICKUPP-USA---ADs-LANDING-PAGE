@@ -35,13 +35,17 @@ const EMPTY: InquiryData = {
 
 export default function InquiryForm({
   layout = "section",
+  defaultAgreed = true,
   onSuccess,
 }: {
   /** "section": fields go single-column on small laptops (narrow column); "popup": two columns from 640px */
   layout?: "section" | "popup";
+  /** Whether the agreement checkbox starts ticked (the popup starts unticked) */
+  defaultAgreed?: boolean;
   onSuccess?: () => void;
 }) {
-  const [formData, setFormData] = useState<InquiryData>(EMPTY);
+  const initial: InquiryData = { ...EMPTY, agreed: defaultAgreed };
+  const [formData, setFormData] = useState<InquiryData>(initial);
   const [loading, setLoading] = useState(false);
   const agreeId = useId();
 
@@ -76,7 +80,7 @@ export default function InquiryForm({
       if (!res.ok) {
         // even if API route isn't set up yet, fallback to graceful success
       }
-      setFormData(EMPTY);
+      setFormData(initial);
       onSuccess?.();
     } catch (err: any) {
       onSuccess?.();

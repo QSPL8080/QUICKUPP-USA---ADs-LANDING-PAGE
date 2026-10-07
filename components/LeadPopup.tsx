@@ -201,6 +201,7 @@ export default function LeadPopup() {
 
             <InquiryForm
               layout="popup"
+              defaultAgreed={false}
               onSuccess={() => {
                 safeSet(DONE_KEY);
                 setDone(true);

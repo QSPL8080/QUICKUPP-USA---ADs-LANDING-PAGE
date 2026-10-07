@@ -1,141 +1,103 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import Link from "next/link";
-import { Film, ArrowRight, Volume2, VolumeX, Sparkles, ChevronRight, Gift, Play } from "lucide-react";
+import { Film, ArrowRight, Volume2, VolumeX, Play, Pause } from "lucide-react";
 
 import SectionBg from "@/components/SectionBg";
 import { SECTION_BG } from "@/lib/photos";
-interface AdItem {
+
+/* Portfolio videos live in /public/videos, covers in /public/videos/posters */
+type Category = "ugc" | "product" | "hyper" | "cartoon";
+
+interface ShowcaseVideo {
   id: string;
-  category: string;
+  category: Category;
   title: string;
-  description: string;
-  sponsor: string;
-  metric: string;
-  ctaText: string;
-  ctaColor: string;
-  type: "video" | "image";
   src: string;
-  poster?: string;
-  badge: string;
-  badgeColor: string;
-  platform: string;
+  poster: string;
 }
 
-const adsData: AdItem[] = [
-  {
-    id: "1",
-    category: "ugc",
-    title: "Organic Beauty UGC Testimonial",
-    description: "Direct-to-camera creator style with unboxing, application routine, and social proof.",
-    sponsor: "@solace.skincare",
-    metric: "Hook: 74%",
-    ctaText: "Shop Serum Bundle",
-    ctaColor: "bg-pink-600 hover:bg-pink-700",
-    type: "video",
-    src: "https://quickuppaistudio.us/videos/HERO%20VIDEO%20NEW.mp4",
-    poster: "https://quickuppaistudio.us/videos/posters/UGC%20Sample.jpg",
-    badge: "AI UGC AD",
-    badgeColor: "text-pink-600 bg-pink-50 border-pink-200",
-    platform: "Meta / TikTok",
-  },
-  {
-    id: "2",
-    category: "avatar",
-    title: "Supplement Science Explainer",
-    description: "Presenter-led mechanism of action walkthrough with dynamic B-roll and clear benefits.",
-    sponsor: "@apex.nootropics",
-    metric: "CTR 4.2%",
-    ctaText: "Claim 30-Day Supply",
-    ctaColor: "bg-purple-600 hover:bg-purple-700",
-    type: "video",
-    src: "https://quickuppaistudio.us/videos/HERO%20VIDEO%20NEW.mp4",
-    poster: "https://quickuppaistudio.us/videos/posters/HERO%20VIDEO%20NEW.jpg",
-    badge: "AI AVATAR AD",
-    badgeColor: "text-purple-600 bg-purple-50 border-purple-200",
-    platform: "Paid Social",
-  },
-  {
-    id: "3",
-    category: "product",
-    title: "Luxury Leather Durability Test",
-    description: "High-contrast product focus highlighting craftsmanship, texture, and water resistance.",
-    sponsor: "@vanguard.leather",
-    metric: "ROAS 5.1x",
-    ctaText: "Order with Monogram",
-    ctaColor: "bg-amber-600 hover:bg-amber-700",
-    type: "image",
-    src: "/images/Digital Twin Image.png",
-    badge: "PRODUCT AD",
-    badgeColor: "text-amber-600 bg-amber-50 border-amber-200",
-    platform: "Instagram Reels",
-  },
-  {
-    id: "4",
-    category: "hyper",
-    title: "Cinematic Perfume Bottle Reveal",
-    description: "Elevated 3D environment with liquid splashing, volumetric lighting, and premium look.",
-    sponsor: "@aurora.fragrance",
-    metric: "CPA $14.20",
-    ctaText: "Discover Scent",
-    ctaColor: "bg-cyan-600 hover:bg-cyan-700",
-    type: "image",
-    src: "/images/ai studio logo hero.png",
-    badge: "HYPER-REALISTIC",
-    badgeColor: "text-cyan-600 bg-cyan-50 border-cyan-200",
-    platform: "Meta & YouTube",
-  },
-  {
-    id: "5",
-    category: "twin",
-    title: "Founder Origin & Brand Vision",
-    description: "Infinite scalable content generated with the founder's exact digital twin likeness and voice.",
-    sponsor: "@founder.brand",
-    metric: "Organic & Paid",
-    ctaText: "Watch Founder Story",
-    ctaColor: "bg-indigo-600 hover:bg-indigo-700",
-    type: "image",
-    src: "/images/Digital Twin Image.png",
-    badge: "DIGITAL TWIN",
-    badgeColor: "text-indigo-600 bg-indigo-50 border-indigo-200",
-    platform: "Founder Led",
-  },
-  {
-    id: "6",
-    category: "ugc",
-    title: "Sensory ASMR Crunch Demo",
-    description: "High attention pattern-interrupt hook built for instant TikTok FYP scroll-stopping power.",
-    sponsor: "@snack.crunch",
-    metric: "Viral Reach",
-    ctaText: "Try Variety Pack",
-    ctaColor: "bg-rose-600 hover:bg-rose-700",
-    type: "video",
-    src: "https://quickuppaistudio.us/videos/HERO%20VIDEO%20NEW.mp4",
-    poster: "https://quickuppaistudio.us/videos/posters/UGC%20Sample.jpg",
-    badge: "PATTERN INTERRUPT",
-    badgeColor: "text-rose-600 bg-rose-50 border-rose-200",
-    platform: "TikTok FYP",
-  },
+const CATEGORY_LABEL: Record<Category, string> = {
+  ugc: "AI UGC",
+  product: "Product Ads",
+  hyper: "Hyper-Realistic",
+  cartoon: "AI Cartoon",
+};
+
+const BADGE_COLOR: Record<Category, string> = {
+  ugc: "text-pink-600 bg-pink-50 border-pink-200",
+  product: "text-amber-700 bg-amber-50 border-amber-200",
+  hyper: "text-cyan-700 bg-cyan-50 border-cyan-200",
+  cartoon: "text-indigo-600 bg-indigo-50 border-indigo-200",
+};
+
+const VIDEOS: ShowcaseVideo[] = [
+  { id: "1", category: "ugc", title: "Skincare", src: "/videos/Portfolio 1.mp4", poster: "/videos/posters/Portfolio 1.jpg" },
+  { id: "2", category: "product", title: "Hair Care", src: "/videos/Portfolio 2.mp4", poster: "/videos/posters/Portfolio 2.jpg" },
+  { id: "3", category: "hyper", title: "Jewelry", src: "/videos/Portfolio 3.mp4", poster: "/videos/posters/Portfolio 3.jpg" },
+  { id: "4", category: "product", title: "Sneakers", src: "/videos/Portfolio 4.mp4", poster: "/videos/posters/Portfolio 4.jpg" },
+  { id: "5", category: "hyper", title: "Lip Gloss", src: "/videos/Portfolio 5.mp4", poster: "/videos/posters/Portfolio 5.jpg" },
+  { id: "6", category: "cartoon", title: "3D Characters", src: "/videos/Portfolio 6.mp4", poster: "/videos/posters/Portfolio 6.jpg" },
+];
+
+// Tabs only for categories that have videos
+const TABS: { key: "all" | Category; label: string }[] = [
+  { key: "all", label: "All Ads" },
+  ...(Object.keys(CATEGORY_LABEL) as Category[])
+    .filter((c) => VIDEOS.some((v) => v.category === c))
+    .map((c) => ({ key: c, label: CATEGORY_LABEL[c] })),
 ];
 
 export default function VideoShowcase() {
-  const [activeTab, setActiveTab] = useState("all");
-  const [mutedStates, setMutedStates] = useState<Record<string, boolean>>({
-    "1": true,
-    "2": true,
-    "6": true,
-  });
+  const [activeTab, setActiveTab] = useState<"all" | Category>("all");
+  const [playingId, setPlayingId] = useState<string | null>(null);
+  const [soundId, setSoundId] = useState<string | null>(null); // the one video allowed to play with sound
+  const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
 
-  const toggleMute = (id: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    setMutedStates((prev) => ({ ...prev, [id]: !prev[id] }));
+  const filtered = activeTab === "all" ? VIDEOS : VIDEOS.filter((v) => v.category === activeTab);
+
+  // Only one video plays at a time
+  const play = useCallback((id: string, withSound?: boolean) => {
+    Object.entries(videoRefs.current).forEach(([vid, el]) => {
+      if (el && vid !== id && !el.paused) el.pause();
+    });
+    const el = videoRefs.current[id];
+    if (!el) return;
+    if (withSound !== undefined) {
+      el.muted = !withSound;
+      setSoundId(withSound ? id : null);
+    }
+    el.play().then(() => setPlayingId(id)).catch(() => {});
+  }, []);
+
+  const pause = useCallback((id: string) => {
+    const el = videoRefs.current[id];
+    if (el && !el.paused) el.pause();
+    setPlayingId((cur) => (cur === id ? null : cur));
+  }, []);
+
+  const togglePlay = (id: string) => {
+    const el = videoRefs.current[id];
+    if (!el) return;
+    if (el.paused) play(id, soundId === id);
+    else pause(id);
   };
 
-  const filteredAds =
-    activeTab === "all"
-      ? adsData
-      : adsData.filter((ad) => ad.category === activeTab);
+  const toggleSound = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const el = videoRefs.current[id];
+    if (!el) return;
+    const turnOn = soundId !== id;
+    Object.entries(videoRefs.current).forEach(([vid, other]) => {
+      if (other && vid !== id) other.muted = true;
+    });
+    el.muted = !turnOn;
+    setSoundId(turnOn ? id : null);
+    if (turnOn && el.paused) play(id, true);
+  };
+
+  const canHover = () => typeof window !== "undefined" && window.matchMedia?.("(hover: hover)").matches;
 
   return (
     <section id="showcase" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-purple-100/80 relative isolate">
@@ -146,7 +108,7 @@ export default function VideoShowcase() {
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-8 sm:mb-12">
           <span className="eyebrow text-[11px] sm:text-xs">
             <Film className="w-3.5 h-3.5 text-purple-600" />
-            <span>05 — Video Showcase</span>
+            <span>Video Showcase</span>
           </span>
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 !leading-[1.2] tracking-tight">
             Converting Video Ads <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">In Action</span>
@@ -158,125 +120,98 @@ export default function VideoShowcase() {
 
         {/* Filter Tabs */}
         <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-center gap-2 mb-8 sm:mb-12 overflow-x-auto no-scrollbar snap-x">
-          <button
-            type="button"
-            onClick={() => setActiveTab("all")}
-            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
-              activeTab === "all"
-                ? "bg-purple-900 text-white border-purple-900 shadow-sm"
-                : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
-            }`}
-          >
-            All Ads
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("ugc")}
-            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
-              activeTab === "ugc"
-                ? "bg-purple-900 text-white border-purple-900 shadow-sm"
-                : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
-            }`}
-          >
-            AI UGC
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("avatar")}
-            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
-              activeTab === "avatar"
-                ? "bg-purple-900 text-white border-purple-900 shadow-sm"
-                : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
-            }`}
-          >
-            AI AVATAR
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("product")}
-            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
-              activeTab === "product"
-                ? "bg-purple-900 text-white border-purple-900 shadow-sm"
-                : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
-            }`}
-          >
-            PRODUCT ADS
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("hyper")}
-            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
-              activeTab === "hyper"
-                ? "bg-purple-900 text-white border-purple-900 shadow-sm"
-                : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
-            }`}
-          >
-            HYPER-REALISTIC
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("twin")}
-            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
-              activeTab === "twin"
-                ? "bg-purple-900 text-white border-purple-900 shadow-sm"
-                : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
-            }`}
-          >
-            DIGITAL TWIN
-          </button>
+          {TABS.map((t) => (
+            <button
+              key={t.key}
+              type="button"
+              onClick={() => {
+                if (playingId) pause(playingId);
+                setActiveTab(t.key);
+              }}
+              className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
+                activeTab === t.key
+                  ? "bg-purple-900 text-white border-purple-900 shadow-sm"
+                  : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
 
-        {/* Ad Video Cards Grid (No external video/image dependencies) */}
+        {/* Video cards */}
         <div className="-mx-4 px-4 sm:mx-auto sm:px-0 flex sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-6xl 3xl:max-w-7xl overflow-x-auto sm:overflow-visible snap-x snap-mandatory no-scrollbar pb-2 sm:pb-0">
-          {filteredAds.map((ad) => (
-            <div
-              key={ad.id}
-              className="w-[78%] xs:w-[72%] shrink-0 snap-center sm:w-auto sm:shrink rounded-2xl border border-slate-200 bg-white p-3 shadow-sm hover:shadow-lg hover:border-purple-300 transition-all flex flex-col justify-between group"
-            >
-              {/* Ad Mockup Frame */}
-              <div className="ad-reel-phone w-full relative p-4 flex flex-col justify-between bg-gradient-to-b from-slate-900 via-purple-950/80 to-black border border-purple-400/30">
-                
-                {/* Top Bar */}
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-white text-[11px] font-bold">
-                    <span className="w-4 h-4 rounded-full bg-purple-500 flex items-center justify-center text-[9px]">Q</span>
-                    <span>{ad.sponsor}</span>
-                  </span>
-                  <span className="px-1.5 py-0.5 rounded-full bg-emerald-500/30 text-emerald-300 border border-emerald-400/40 text-[9px] font-bold font-mono">
-                    {ad.metric}
-                  </span>
+          {filtered.map((v) => {
+            const isPlaying = playingId === v.id;
+            const hasSound = soundId === v.id;
+            return (
+              <div
+                key={v.id}
+                className="w-[78%] xs:w-[72%] shrink-0 snap-center sm:w-auto sm:shrink rounded-2xl border border-slate-200 bg-white p-3 shadow-sm hover:shadow-lg hover:border-purple-300 transition-all flex flex-col group"
+                onMouseEnter={() => canHover() && !hasSound && play(v.id, false)}
+                onMouseLeave={() => canHover() && !hasSound && pause(v.id)}
+              >
+                {/* Phone frame with the video */}
+                <div className="ad-reel-phone w-full relative bg-slate-950 border border-purple-400/30">
+                  <video
+                    ref={(el) => {
+                      videoRefs.current[v.id] = el;
+                    }}
+                    src={v.src}
+                    poster={v.poster}
+                    preload="none"
+                    muted
+                    loop
+                    playsInline
+                    onClick={() => togglePlay(v.id)}
+                    onPause={() => setPlayingId((cur) => (cur === v.id ? null : cur))}
+                    aria-label={`${CATEGORY_LABEL[v.category]} example: ${v.title}`}
+                    className="absolute inset-0 h-full w-full object-cover cursor-pointer"
+                  />
+
+                  {/* Play button while paused */}
+                  {!isPlaying && (
+                    <button
+                      type="button"
+                      onClick={() => togglePlay(v.id)}
+                      aria-label={`Play ${v.title}`}
+                      className="absolute inset-0 m-auto flex h-14 w-14 items-center justify-center rounded-full bg-white/25 text-white backdrop-blur-md border border-white/50 shadow-lg transition-all group-hover:scale-110 group-hover:bg-purple-600 group-hover:border-purple-400"
+                    >
+                      <Play className="h-6 w-6 fill-current ml-0.5" />
+                    </button>
+                  )}
+
+                  {/* Controls */}
+                  <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 bg-gradient-to-t from-black/60 to-transparent p-3 pt-10">
+                    <button
+                      type="button"
+                      onClick={() => togglePlay(v.id)}
+                      aria-label={isPlaying ? `Pause ${v.title}` : `Play ${v.title}`}
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur hover:bg-black/70"
+                    >
+                      {isPlaying ? <Pause className="h-4 w-4 fill-current" /> : <Play className="h-4 w-4 fill-current ml-0.5" />}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => toggleSound(v.id, e)}
+                      aria-label={hasSound ? `Mute ${v.title}` : `Turn on sound for ${v.title}`}
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur hover:bg-black/70"
+                    >
+                      {hasSound ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
+                    </button>
+                  </div>
                 </div>
 
-                {/* Center Graphic */}
-                <div className="my-auto py-6 flex flex-col items-center justify-center text-center space-y-2">
-                  <div className="h-12 w-12 rounded-full bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-300 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all shadow-lg">
-                    <Play className="w-5 h-5 fill-current ml-0.5" />
-                  </div>
-                  <span className="text-xs font-bold text-white tracking-wide">{ad.badge}</span>
-                  <span className="text-[10px] text-slate-400">{ad.platform}</span>
-                </div>
-
-                {/* Native Ad Callout */}
-                <div className="space-y-1">
-                  <div className="bg-black/70 backdrop-blur-md rounded-lg p-2 border border-white/10 text-[10px] text-white">
-                    <span className="font-bold text-purple-300">{ad.title}</span>
-                  </div>
+                {/* Card bottom */}
+                <div className="flex items-center justify-between gap-2 px-1 pt-3 pb-1">
+                  <h4 className="font-bold text-sm text-slate-900 truncate">{v.title}</h4>
+                  <span className={`shrink-0 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded border ${BADGE_COLOR[v.category]}`}>
+                    {CATEGORY_LABEL[v.category]}
+                  </span>
                 </div>
               </div>
-
-              {/* Card Bottom Meta */}
-              <div className="p-3 pt-4">
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className={`text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded border ${ad.badgeColor}`}>
-                    {ad.badge}
-                  </span>
-                  <span className="text-[10px] text-slate-400 font-semibold">{ad.platform}</span>
-                </div>
-                <h4 className="font-bold text-sm text-slate-900 mb-1">{ad.title}</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">{ad.description}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA below showcase */}
