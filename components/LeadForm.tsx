@@ -331,15 +331,16 @@ export default function LeadForm() {
               </a>
             </div>
 
-            {/* Calendly Inline Widget with clean hidden scrollbar */}
-            <div className="w-full flex-1 bg-white relative">
+            {/* Calendly Inline Widget — scrollable, with its scrollbar hidden.
+                The scrollbar lives inside Calendly's page (can't be styled), so the
+                iframe is made 24px wider than this box and the overflow is clipped. */}
+            <div className="w-full flex-1 bg-white relative overflow-hidden">
               <iframe
                 src="https://calendly.com/qsaistudio/quickupp-ai-studio-30-min-strategy-call?embed_domain=quickuppaistudio.us&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=9333ea"
-                width="100%"
                 frameBorder="0"
                 loading="lazy"
                 title="Quickupp AI Studio - 30 Min Strategy Call"
-                className="block w-full border-0 h-[620px] sm:h-[600px] lg:h-full lg:min-h-[540px]"
+                className="block max-w-none border-0 w-[calc(100%+24px)] h-[620px] sm:h-[600px] lg:h-full lg:min-h-[540px]"
               />
             </div>
           </div>
