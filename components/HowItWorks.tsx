@@ -6,42 +6,42 @@ import { Workflow } from "lucide-react";
 const steps = [
   {
     num: "01",
-    title: "RESEARCH",
+    title: "Research",
     desc: "We understand your product, audience, positioning and competitive landscape.",
   },
   {
     num: "02",
-    title: "CREATIVE STRATEGY",
+    title: "Creative Strategy",
     desc: "We identify creative angles, messaging opportunities and potential concepts.",
   },
   {
     num: "03",
-    title: "HOOKS & CONCEPTS",
+    title: "Hooks & Concepts",
     desc: "We develop scroll-stopping hooks and multiple creative directions.",
   },
   {
     num: "04",
-    title: "SCRIPT & STORYBOARD",
+    title: "Script & Storyboard",
     desc: "The selected concept becomes a structured, production-ready video.",
   },
   {
     num: "05",
-    title: "AI PRODUCTION",
+    title: "AI Production",
     desc: "Our AI-powered workflow brings the creative concept to life.",
   },
   {
     num: "06",
-    title: "EDITING & SOUND",
+    title: "Editing & Sound",
     desc: "We add captions, voiceover, music, sound effects, pacing and finishing touches.",
   },
   {
     num: "07",
-    title: "QUALITY CONTROL",
+    title: "Quality Control",
     desc: "Every creative goes through a final review before delivery.",
   },
   {
     num: "08",
-    title: "DELIVERY",
+    title: "Delivery",
     desc: "You receive ready-to-use short-form video creatives for your marketing campaigns.",
   },
 ];
@@ -53,15 +53,15 @@ export default function HowItWorks() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
-          <span className="eyebrow">
+          <span className="eyebrow text-[11px] sm:text-xs">
             <Workflow className="w-3.5 h-3.5 text-purple-600" />
-            <span>OUR CREATIVE PROCESS</span>
+            <span>Our Creative Process</span>
           </span>
 
-          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
-            FROM PRODUCT<br />
-            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
-              To performance-ready creative.
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold !leading-[1.2] tracking-tight text-slate-900">
+            From Product<br />
+            <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">
+              To performance-ready creative
             </span>
           </h2>
 

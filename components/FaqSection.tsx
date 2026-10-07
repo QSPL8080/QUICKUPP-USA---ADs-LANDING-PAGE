@@ -47,13 +47,13 @@ export default function FaqSection() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14">
-          <span className="eyebrow">
+          <span className="eyebrow text-[11px] sm:text-xs">
             <HelpCircle className="w-3.5 h-3.5 text-purple-600" />
             <span>11 — FAQ</span>
           </span>
 
-          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
-            FREQUENTLY ASKED <span className="font-serif italic font-normal text-gradient-brand inline-block pr-2.5 text-[1.08em] tracking-normal">Questions</span>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold !leading-[1.2] tracking-tight text-slate-900">
+            Frequently Asked <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">Questions</span>
           </h2>
         </div>
 

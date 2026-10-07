@@ -5,43 +5,43 @@ import { Sparkles, HeartPulse, Shirt, Gem, Coffee, Home, Box, Store } from "luci
 
 const industries = [
   {
-    title: "BEAUTY & SKINCARE",
+    title: "Beauty & Skincare",
     desc: "Product demonstrations, routines, testimonials and UGC-style advertising.",
     icon: Sparkles,
     color: "text-pink-600 bg-pink-50 border-pink-200",
   },
   {
-    title: "HEALTH & WELLNESS",
+    title: "Health & Wellness",
     desc: "Product education, benefits-focused creative and relatable storytelling.",
     icon: HeartPulse,
     color: "text-emerald-600 bg-emerald-50 border-emerald-200",
   },
   {
-    title: "FASHION & APPAREL",
+    title: "Fashion & Apparel",
     desc: "Try-ons, styling concepts, product showcases and lifestyle content.",
     icon: Shirt,
     color: "text-purple-600 bg-purple-50 border-purple-200",
   },
   {
-    title: "JEWELRY & ACCESSORIES",
+    title: "Jewelry & Accessories",
     desc: "Premium product visuals, lifestyle storytelling and social-first creative.",
     icon: Gem,
     color: "text-amber-600 bg-amber-50 border-amber-200",
   },
   {
-    title: "FOOD & BEVERAGE",
+    title: "Food & Beverage",
     desc: "Product-focused videos, lifestyle moments and social content.",
     icon: Coffee,
     color: "text-rose-600 bg-rose-50 border-rose-200",
   },
   {
-    title: "PET & HOME",
+    title: "Pet & Home",
     desc: "Relatable product stories, demonstrations and lifestyle-driven creative.",
     icon: Home,
     color: "text-cyan-600 bg-cyan-50 border-cyan-200",
   },
   {
-    title: "OTHER CONSUMER PRODUCTS",
+    title: "Other Consumer Products",
     desc: "Product demos, problem-solution concepts and creative variations for DTC stores.",
     icon: Box,
     color: "text-indigo-600 bg-indigo-50 border-indigo-200",
@@ -55,15 +55,15 @@ export default function BuiltForDTC() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
-          <span className="eyebrow">
+          <span className="eyebrow text-[11px] sm:text-xs">
             <Store className="w-3.5 h-3.5 text-purple-600" />
-            <span>08 — BUILT FOR DTC</span>
+            <span>08 — Built for DTC</span>
           </span>
 
-          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
-            CREATIVE FOR CONSUMER BRANDS<br />
-            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
-              Built for brands that need more creative.
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold !leading-[1.2] tracking-tight text-slate-900">
+            Creative for Consumer Brands<br />
+            <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">
+              Built for brands that need more creative
             </span>
           </h2>
 

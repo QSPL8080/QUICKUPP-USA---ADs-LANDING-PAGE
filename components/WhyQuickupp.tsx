@@ -5,37 +5,37 @@ import { Compass, TrendingUp, Layers, Clock, Palette, Share2, Sparkles } from "l
 
 const reasons = [
   {
-    title: "CREATIVE-FIRST",
+    title: "Creative-First",
     desc: "We don't simply generate videos. We start with the hook, concept, audience and message.",
     icon: Compass,
     color: "text-purple-600 bg-purple-50 border-purple-200",
   },
   {
-    title: "PERFORMANCE-MINDED",
+    title: "Performance-Minded",
     desc: "Creative is developed with short-form advertising and attention in mind.",
     icon: TrendingUp,
     color: "text-pink-600 bg-pink-50 border-pink-200",
   },
   {
-    title: "MORE VARIATIONS",
+    title: "More Variations",
     desc: "Create multiple hooks, angles, concepts and visual directions from the same product.",
     icon: Layers,
     color: "text-cyan-600 bg-cyan-50 border-cyan-200",
   },
   {
-    title: "FASTER PRODUCTION",
+    title: "Faster Production",
     desc: "Reduce the traditional coordination required to produce fresh video concepts.",
     icon: Clock,
     color: "text-amber-600 bg-amber-50 border-amber-200",
   },
   {
-    title: "FLEXIBLE FORMATS",
+    title: "Flexible Formats",
     desc: "Choose from AI UGC, Avatar, Hyper-Realistic, Cartoon and Digital Twin.",
     icon: Palette,
     color: "text-emerald-600 bg-emerald-50 border-emerald-200",
   },
   {
-    title: "PAID SOCIAL READY",
+    title: "Paid Social Ready",
     desc: "Creative designed specifically for platforms such as Meta, Instagram and TikTok.",
     icon: Share2,
     color: "text-indigo-600 bg-indigo-50 border-indigo-200",
@@ -49,15 +49,15 @@ export default function WhyQuickupp() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
-          <span className="eyebrow">
+          <span className="eyebrow text-[11px] sm:text-xs">
             <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-            <span>09 — WHY QUICKUPP</span>
+            <span>09 — Why Quickupp</span>
           </span>
 
-          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
-            WHY QUICKUPP AI STUDIO<br />
-            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
-              More creative. Less production complexity.
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold !leading-[1.2] tracking-tight text-slate-900">
+            Why Quickupp AI Studio<br />
+            <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">
+              More creative, less production complexity
             </span>
           </h2>
         </div>

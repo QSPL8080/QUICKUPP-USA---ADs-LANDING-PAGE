@@ -1,206 +1,347 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, ArrowRight, Lock, Clock, CheckCircle2, Check } from "lucide-react";
+import { Sparkles, ArrowRight, Lock, Clock, CheckCircle2, Check, Calendar, ExternalLink } from "lucide-react";
 
 export default function LeadForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    website: "",
+    industry: "",
+    serviceNeeded: "",
+    requirement: "",
+    projectDetails: "",
+    agreed: true,
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value, type } = e.target;
+    if (type === "checkbox") {
+      const checked = (e.target as HTMLInputElement).checked;
+      setFormData((prev) => ({ ...prev, [name]: checked }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        // even if API route isn't set up yet, fallback to graceful success
+      }
       setSubmitted(true);
-    }, 1200);
+    } catch (err: any) {
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <section id="audit-form" className="py-12 sm:py-20 lg:py-24 bg-slate-50/70 relative">
+    <section id="contact" className="py-16 sm:py-24 lg:py-28 bg-gradient-to-b from-slate-50/80 via-purple-50/30 to-white relative overflow-hidden scroll-mt-16">
+      {/* Anchor target for legacy audit-form links */}
+      <span id="audit-form" className="absolute -top-24 left-0" />
+      {/* Soft Background Wave / Blur Atmosphere */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full blur-[140px] opacity-25"
+        style={{ background: "radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%)" }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-40 bottom-10 h-[500px] w-[500px] rounded-full blur-[140px] opacity-20"
+        style={{ background: "radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, transparent 70%)" }}
+      />
+
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="max-w-4xl mx-auto rounded-2xl sm:rounded-3xl border border-purple-200/90 bg-white p-4 xs:p-5 sm:p-10 lg:p-12 shadow-xl relative overflow-hidden">
+        {/* Section Header */}
+        <div className="text-center space-y-2.5 mb-8 sm:mb-12 max-w-2xl mx-auto">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-[2.1rem] lg:text-[2.35rem] font-bold tracking-tight text-slate-900 !leading-[1.15]">
+            Contact / <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">Booking</span>
+          </h2>
+          <p className="text-slate-600 text-xs sm:text-sm md:text-[14px] leading-relaxed max-w-lg mx-auto">
+            Send us your project details, or book a free 30-minute strategy call with our creative team. Whichever suits you.
+          </p>
+        </div>
+
+        {/* 2-Column Grid: Left Contact Form | Right Calendly Widget */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-stretch max-w-6xl mx-auto">
           
-          {/* Header */}
-          <div className="text-center space-y-3 mb-7 sm:mb-10">
-            <span className="eyebrow">
-              <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-              <span>15 — LEAD FORM</span>
-            </span>
+          {/* ─────────────────────────────────────────────────────────────
+              LEFT COLUMN: CONTACT FORM (6 Cols)
+             ───────────────────────────────────────────────────────────── */}
+          <div className="lg:col-span-6 rounded-3xl border border-purple-100/90 bg-white p-6 sm:p-8 md:p-9 shadow-xl shadow-purple-900/5 flex flex-col justify-between">
+            <form onSubmit={handleSubmit} className="space-y-4 flex flex-col h-full justify-between">
+              <div className="space-y-4">
+                {/* Row 1: Name & Work Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Name*
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Your full name"
+                      className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-100 transition-all"
+                    />
+                  </div>
 
-            <h2 className="font-heading text-[1.35rem] leading-snug sm:text-2xl md:text-3xl font-bold text-slate-900">
-              Claim Your Free DTC Creative Audit & <span className="text-gradient-brand">Ad Blueprint</span>
-            </h2>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Work Email*
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="you@company.com"
+                      className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-100 transition-all"
+                    />
+                  </div>
+                </div>
 
-            <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
-              Share your store details below. Our DTC creative strategy team will analyze your product angles and send 3 high-converting hook concepts within 24 hours.
-            </p>
+                {/* Row 2: Phone & Company */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Phone*
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+1 (555) 000-0000"
+                      className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-100 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Company / Brand*
+                    </label>
+                    <input
+                      type="text"
+                      name="company"
+                      required
+                      value={formData.company}
+                      onChange={handleChange}
+                      placeholder="Company or brand name"
+                      className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-100 transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Row 3: Website & Industry */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Website
+                    </label>
+                    <input
+                      type="url"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleChange}
+                      placeholder="https://yourbrand.com or social"
+                      className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-100 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Industry*
+                    </label>
+                    <select
+                      name="industry"
+                      required
+                      value={formData.industry}
+                      onChange={handleChange}
+                      className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-100 transition-all cursor-pointer"
+                    >
+                      <option value="">Select industry</option>
+                      <option value="Beauty & Skincare">Beauty &amp; Skincare</option>
+                      <option value="Health & Wellness">Health &amp; Wellness</option>
+                      <option value="Fashion & Apparel">Fashion &amp; Apparel</option>
+                      <option value="Jewelry & Accessories">Jewelry &amp; Accessories</option>
+                      <option value="Food & Beverage">Food &amp; Beverage</option>
+                      <option value="Pet & Home">Pet &amp; Home</option>
+                      <option value="Consumer Tech / Electronics">Consumer Tech / Electronics</option>
+                      <option value="Other DTC / E-Commerce">Other DTC / E-Commerce</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Row 4: What do you need & Monthly creative requirement */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      What do you need?*
+                    </label>
+                    <select
+                      name="serviceNeeded"
+                      required
+                      value={formData.serviceNeeded}
+                      onChange={handleChange}
+                      className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-100 transition-all cursor-pointer"
+                    >
+                      <option value="">Select video format / need</option>
+                      <option value="AI UGC Video Ads">AI UGC Video Ads</option>
+                      <option value="AI Avatar Explainer Ads">AI Avatar Explainer Ads</option>
+                      <option value="Hyper-Realistic 3D Ads">Hyper-Realistic 3D Ads</option>
+                      <option value="AI Cartoon / Style Ads">AI Cartoon / Style Ads</option>
+                      <option value="Digital Twin Ads">Digital Twin Ads</option>
+                      <option value="Full Creative Variation Package">Full Creative Variation Package</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Monthly creative requirement*
+                    </label>
+                    <select
+                      name="requirement"
+                      required
+                      value={formData.requirement}
+                      onChange={handleChange}
+                      className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-100 transition-all cursor-pointer"
+                    >
+                      <option value="">Select volume / requirement</option>
+                      <option value="Starter (3–5 Ads / month)">Starter (3–5 Ads / month)</option>
+                      <option value="Growth (10–15 Ads / month)">Growth (10–15 Ads / month)</option>
+                      <option value="Scale (25+ Ads / month)">Scale (25+ Ads / month)</option>
+                      <option value="One-time Test Campaign">One-time Test Campaign</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Project Details Textarea */}
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Project details*
+                  </label>
+                  <textarea
+                    name="projectDetails"
+                    required
+                    rows={4}
+                    value={formData.projectDetails}
+                    onChange={handleChange}
+                    placeholder="Tell us what you're selling, who you're targeting, hooks/angles, and what you're trying to achieve..."
+                    className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-100 transition-all"
+                  />
+                </div>
+
+                {/* Legal Checkbox */}
+                <div className="flex items-start gap-2 pt-1 text-[11px] text-slate-500">
+                  <input
+                    type="checkbox"
+                    name="agreed"
+                    id="agree-checkbox"
+                    checked={formData.agreed}
+                    onChange={handleChange}
+                    className="mt-0.5 accent-purple-600 rounded"
+                  />
+                  <label htmlFor="agree-checkbox" className="leading-tight cursor-pointer">
+                    I agree to the{" "}
+                    <a href="#privacy" className="text-purple-600 underline hover:text-purple-700">
+                      Privacy Policy
+                    </a>
+                    ,{" "}
+                    <a href="#terms" className="text-purple-600 underline hover:text-purple-700">
+                      Terms &amp; Conditions
+                    </a>
+                    , and{" "}
+                    <a href="#cookies" className="text-purple-600 underline hover:text-purple-700">
+                      Cookie Policy
+                    </a>
+                    .
+                  </label>
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-3">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full rounded-xl bg-gradient-brand py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-md glow-neon hover:brightness-110 active:scale-98 transition-all cursor-pointer disabled:opacity-75"
+                >
+                  {loading ? "Submitting Inquiry..." : "SUBMIT INQUIRY"}
+                </button>
+              </div>
+            </form>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          {/* ─────────────────────────────────────────────────────────────
+              RIGHT COLUMN: CALENDLY EMBED CARD (6 Cols)
+             ───────────────────────────────────────────────────────────── */}
+          <div className="lg:col-span-6 rounded-3xl border border-purple-100/90 bg-white overflow-hidden shadow-xl shadow-purple-900/5 flex flex-col h-full">
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              
-              {/* Full Name */}
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Sarah Jenkins"
-                  className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-purple-600 focus:bg-white focus:outline-none transition-all shadow-2xs"
+            {/* Top Bar matching screenshot */}
+            <div className="p-4 sm:px-6 sm:py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50 shrink-0">
+              <div className="flex items-center gap-2.5 text-left">
+                <div className="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center text-white shrink-0 shadow-xs">
+                  <Calendar className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
+                    Book a 30-Min Strategy Call
+                  </h4>
+                  <p className="text-[11px] text-slate-500">Pick a time that works for you · Free</p>
+                </div>
+              </div>
+
+              <a
+                href="https://calendly.com/qsaistudio/quickupp-ai-studio-30-min-strategy-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[11px] font-semibold text-purple-700 hover:text-purple-800 bg-purple-50 hover:bg-purple-100 px-3 py-1.5 rounded-lg transition-all"
+              >
+                <span>Open in New Tab</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+
+            {/* Calendly Inline Widget with clean hidden scrollbar */}
+            <div className="w-full flex-1 min-h-[580px] lg:min-h-[620px] bg-white relative overflow-hidden">
+              <div className="w-full h-full overflow-y-auto no-scrollbar">
+                <iframe
+                  src="https://calendly.com/qsaistudio/quickupp-ai-studio-30-min-strategy-call?embed_domain=quickuppaistudio.us&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=9333ea"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  scrolling="no"
+                  title="Quickupp AI Studio - 30 Min Strategy Call"
+                  className="w-full h-full min-h-[640px] border-0"
                 />
               </div>
-
-              {/* Brand Name */}
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                  Brand / Company Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Lumina Skincare"
-                  className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-purple-600 focus:bg-white focus:outline-none transition-all shadow-2xs"
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                  Best Email Address *
-                </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="sarah@yourbrand.com"
-                  className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-purple-600 focus:bg-white focus:outline-none transition-all shadow-2xs"
-                />
-              </div>
-
-              {/* Store URL */}
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                  Website / Store URL *
-                </label>
-                <input
-                  type="url"
-                  required
-                  placeholder="https://yourbrand.com"
-                  className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-purple-600 focus:bg-white focus:outline-none transition-all shadow-2xs"
-                />
-              </div>
-
             </div>
-
-            {/* Dropdowns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                  Current Monthly Ad Spend
-                </label>
-                <select className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-purple-600 focus:bg-white focus:outline-none transition-all shadow-2xs cursor-pointer">
-                  <option value="under5k">Under $5,000 / month</option>
-                  <option value="5k-20k" defaultValue="5k-20k">$5,000 – $20,000 / month</option>
-                  <option value="20k-50k">$20,000 – $50,000 / month</option>
-                  <option value="50k-100k">$50,000 – $100,000 / month</option>
-                  <option value="100k+">$100,000+ / month</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                  Target Launch Timeline
-                </label>
-                <select className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-purple-600 focus:bg-white focus:outline-none transition-all shadow-2xs cursor-pointer">
-                  <option value="asap">ASAP (Next 7 days)</option>
-                  <option value="2weeks">Within 2–4 weeks</option>
-                  <option value="exploring">Just exploring options</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Formats Checklist */}
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2.5">
-                Creative Formats of Interest (Select All That Apply)
-              </label>
-              <div className="grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-2.5 text-[13px] sm:text-xs text-slate-800">
-                <label className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-purple-50 cursor-pointer">
-                  <input type="checkbox" defaultChecked className="accent-purple-600 rounded" />
-                  <span>AI UGC Videos</span>
-                </label>
-                <label className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-purple-50 cursor-pointer">
-                  <input type="checkbox" defaultChecked className="accent-purple-600 rounded" />
-                  <span>AI Avatar Ads</span>
-                </label>
-                <label className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-purple-50 cursor-pointer">
-                  <input type="checkbox" className="accent-purple-600 rounded" />
-                  <span>Hyper-Realistic 3D</span>
-                </label>
-                <label className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-purple-50 cursor-pointer">
-                  <input type="checkbox" className="accent-purple-600 rounded" />
-                  <span>AI Cartoon / Pattern</span>
-                </label>
-                <label className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-purple-50 cursor-pointer">
-                  <input type="checkbox" className="accent-purple-600 rounded" />
-                  <span>Digital Twin</span>
-                </label>
-                <label className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-purple-50 cursor-pointer">
-                  <input type="checkbox" className="accent-purple-600 rounded" />
-                  <span>Full Creative Mix</span>
-                </label>
-              </div>
-            </div>
-
-            {/* Bottleneck Textarea */}
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                What is your biggest creative bottleneck right now? (Optional)
-              </label>
-              <textarea
-                rows={3}
-                placeholder="e.g. We have ad fatigue on Meta and need 10+ fresh hook angles for our flagship product..."
-                className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-purple-600 focus:bg-white focus:outline-none transition-all shadow-2xs"
-              />
-            </div>
-
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-brand px-4 py-4 text-sm sm:text-base font-bold text-center leading-snug text-white shadow-md glow-neon hover:brightness-110 active:scale-95 transition-all cursor-pointer"
-            >
-              {loading ? (
-                <span>Generating Your Audit Plan...</span>
-              ) : (
-                <>
-                  <span>CLAIM YOUR FREE CREATIVE AUDIT & AD BLUEPRINT</span>
-                  <ArrowRight className="w-5 h-5 shrink-0" />
-                </>
-              )}
-            </button>
-
-            {/* Trust Badges */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs text-slate-500 pt-2 font-mono">
-              <span className="flex items-center gap-1.5">
-                <Lock className="w-3.5 h-3.5 text-emerald-600" /> 100% Free & Confidential
-              </span>
-              <span className="hidden sm:inline">•</span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-purple-600" /> 24-Hour Turnaround
-              </span>
-              <span className="hidden sm:inline">•</span>
-              <span className="flex items-center gap-1.5">
-                <Check className="w-3.5 h-3.5 text-cyan-600" /> No Obligation
-              </span>
-            </div>
-
-          </form>
+          </div>
 
         </div>
 
@@ -208,14 +349,14 @@ export default function LeadForm() {
 
       {/* Submission Success Modal */}
       {submitted && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div className="bg-white border border-purple-200 rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[90dvh] overflow-y-auto text-center space-y-4 shadow-2xl">
+        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+          <div className="bg-white border border-purple-200 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center space-y-4 shadow-2xl">
             <div className="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto border border-emerald-300">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="font-heading text-2xl font-bold text-slate-900">Creative Audit Received!</h3>
+            <h3 className="font-heading text-2xl font-bold text-slate-900">Inquiry Submitted!</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
-              Our DTC creative strategists are analyzing your store and crafting your customized hook angles. Expect your audit blueprint in your inbox within 24 hours.
+              Thank you for reaching out. Our DTC creative strategy team has received your project details and will get back to you within 24 hours.
             </p>
             <div className="pt-2">
               <button

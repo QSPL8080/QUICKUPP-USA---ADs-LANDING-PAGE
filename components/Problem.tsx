@@ -23,15 +23,15 @@ export default function Problem() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-12">
-          <span className="eyebrow">
+          <span className="eyebrow text-[11px] sm:text-xs">
             <AlertCircle className="w-3.5 h-3.5 text-rose-600" />
-            <span>CREATIVE FATIGUE IS EXPENSIVE.</span>
+            <span>Creative Fatigue Is Expensive</span>
           </span>
 
-          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
-            YOUR PRODUCT ISN'T THE PROBLEM.<br />
-            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
-              Your creative volume might be.
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold !leading-[1.2] tracking-tight text-slate-900">
+            Your Product Isn't the Problem<br />
+            <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">
+              Your creative volume might be
             </span>
           </h2>
 
@@ -61,7 +61,7 @@ export default function Problem() {
             <div>
               <div className="flex items-center justify-between pb-4 mb-6 border-b border-rose-200">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">TRADITIONAL PRODUCTION</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">Traditional Production</h3>
                 </div>
               </div>
 
@@ -106,7 +106,7 @@ export default function Problem() {
               <div className="flex items-center justify-between pb-4 mb-6 border-b border-purple-200">
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
-                    <span>AI CREATIVE WORKFLOW</span>
+                    <span>AI Creative Workflow</span>
                     <Sparkles className="w-4 h-4 text-purple-600" />
                   </h3>
                 </div>

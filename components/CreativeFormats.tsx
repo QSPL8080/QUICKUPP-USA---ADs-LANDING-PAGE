@@ -6,7 +6,7 @@ import { ArrowRight, Sparkles, Video, UserCheck, Flame, Palette, User } from "lu
 
 const formats = [
   {
-    num: "FORMAT 1",
+    num: "Format 1",
     title: "AI UGC",
     tagline: "Authentic. Social-first. Built for the feed.",
     desc: "UGC-style creative designed to feel native to platforms like TikTok, Instagram and Meta.",
@@ -21,8 +21,8 @@ const formats = [
     badgeColor: "bg-pink-100 text-pink-800 border-pink-200",
   },
   {
-    num: "FORMAT 2",
-    title: "AI AVATAR",
+    num: "Format 2",
+    title: "AI Avatar",
     tagline: "Consistent presenters without a traditional shoot.",
     desc: "Create presenter-led videos with AI avatars for product education, demonstrations, explanations and advertising.",
     bestFor: [
@@ -37,8 +37,8 @@ const formats = [
     badgeColor: "bg-purple-100 text-purple-800 border-purple-200",
   },
   {
-    num: "FORMAT 3",
-    title: "AI HYPER-REALISTIC",
+    num: "Format 3",
+    title: "AI Hyper-Realistic",
     tagline: "Premium visual storytelling.",
     desc: "Create realistic, polished video content for brands that need a more elevated visual identity.",
     bestFor: [
@@ -53,8 +53,8 @@ const formats = [
     badgeColor: "bg-cyan-100 text-cyan-800 border-cyan-200",
   },
   {
-    num: "FORMAT 4",
-    title: "AI CARTOON",
+    num: "Format 4",
+    title: "AI Cartoon",
     tagline: "Make your product impossible to ignore.",
     desc: "Distinctive visual concepts designed to create pattern interruption and stand out in crowded feeds.",
     bestFor: [
@@ -68,8 +68,8 @@ const formats = [
     badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
   },
   {
-    num: "FORMAT 5",
-    title: "AI DIGITAL TWIN",
+    num: "Format 5",
+    title: "AI Digital Twin",
     tagline: "Create a consistent digital version of your brand representative.",
     desc: "Build scalable content around a digital version of a real person. Founders and brand spokespeople can produce infinite videos every month without setting up cameras or spending hours filming.",
     bestFor: [
@@ -92,15 +92,15 @@ export default function CreativeFormats() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
-          <span className="eyebrow">
+          <span className="eyebrow text-[11px] sm:text-xs">
             <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-            <span>06 — CREATIVE FORMATS</span>
+            <span>06 — Creative Formats</span>
           </span>
 
-          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
-            CHOOSE YOUR CREATIVE STYLE<br />
-            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
-              One Studio. Multiple ways to create.
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold !leading-[1.2] tracking-tight text-slate-900">
+            Choose Your Creative Style<br />
+            <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">
+              One Studio, multiple ways to create
             </span>
           </h2>
 

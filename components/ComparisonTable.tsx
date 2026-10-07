@@ -45,14 +45,14 @@ export default function ComparisonTable() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14">
-          <span className="eyebrow">
+          <span className="eyebrow text-[11px] sm:text-xs">
             <Scale className="w-3.5 h-3.5 text-purple-600" />
-            <span>10 — CREATIVE COMPARISON</span>
+            <span>10 — Creative Comparison</span>
           </span>
 
-          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
-            TRADITIONAL PRODUCTION VS.<br />
-            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold !leading-[1.2] tracking-tight text-slate-900">
+            Traditional Production vs<br />
+            <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">
               AI Creative Production
             </span>
           </h2>
@@ -105,7 +105,7 @@ export default function ComparisonTable() {
             You don't always need another production day.
           </p>
           <p className="font-heading text-base xs:text-lg sm:text-2xl font-extrabold tracking-tight uppercase">
-            SOMETIMES, YOU NEED <span className="text-gradient-brand">MORE CREATIVE IDEAS.</span>
+            SOMETIMES, YOU NEED <span className="text-gradient-brand">MORE CREATIVE IDEAS</span>
           </p>
         </div>
 

@@ -19,22 +19,22 @@ export default function FinalCta() {
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
         
         {/* Eyebrow */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-900/40 px-4 py-1.5 text-xs font-bold text-purple-200 backdrop-blur-md">
+        <div className="inline-flex items-center gap-2 rounded-full border border-purple-400/40 bg-purple-900/40 px-3.5 py-1.5 text-[11px] sm:text-xs font-bold text-purple-200 backdrop-blur-md">
           <Sparkles className="w-3.5 h-3.5 text-pink-400 animate-pulse" />
-          <span>READY TO CREATE MORE?</span>
+          <span>Ready to Create More?</span>
         </div>
 
         {/* Headline */}
-        <h2 className="font-heading text-[1.75rem] xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl 3xl:text-7xl font-bold tracking-tight text-white leading-[1.25] max-w-4xl mx-auto py-1">
-          YOUR NEXT WINNING AD<br className="hidden sm:block" />{" "}
-          COULD BE ONE CREATIVE<br />
-          <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.12em] tracking-normal">
-            variation away.
+        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white !leading-[1.2] max-w-4xl mx-auto">
+          Your Next Winning Ad<br className="hidden sm:block" />{" "}
+          Could Be One Creative<br />
+          <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">
+            Variation Away
           </span>
         </h2>
 
         {/* Supporting Copy */}
-        <p className="text-purple-200 text-[15px] sm:text-xl font-semibold max-w-2xl mx-auto leading-relaxed">
+        <p className="text-purple-200 text-sm sm:text-base md:text-lg font-semibold max-w-2xl mx-auto leading-relaxed">
           More hooks. More angles. More creative.<br />
           More opportunities to find what works.
         </p>
@@ -45,7 +45,7 @@ export default function FinalCta() {
             href="#audit-form"
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-brand px-5 sm:px-8 py-4 text-sm sm:text-base font-bold text-white shadow-lg glow-neon-lg hover:brightness-110 active:scale-95 transition-all w-full sm:w-auto text-center"
           >
-            <span>GET YOUR FREE DTC CREATIVE AUDIT →</span>
+            <span>Get Free Creative Audit →</span>
           </Link>
 
           <Link
@@ -53,7 +53,7 @@ export default function FinalCta() {
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 sm:px-8 py-4 text-sm sm:text-base font-bold text-white backdrop-blur-md hover:bg-white/20 hover:border-purple-300 transition-all w-full sm:w-auto text-center"
           >
             <Play className="w-4 h-4 text-pink-400 fill-pink-400" />
-            <span>VIEW OUR WORK →</span>
+            <span>View Our Work →</span>
           </Link>
         </div>
 

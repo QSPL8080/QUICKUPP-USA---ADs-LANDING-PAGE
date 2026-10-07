@@ -23,51 +23,51 @@ export default function Hero() {
       />
 
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 xl:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
           
           {/* Left Hero Content (6 cols) */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left space-y-5 sm:space-y-6 min-w-0">
+          <div className="lg:col-span-6 flex flex-col items-start text-left space-y-4 sm:space-y-5 min-w-0">
             
             {/* Eyebrow */}
-            <div className="eyebrow">
+            <div className="eyebrow text-[11px] sm:text-xs">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-600"></span>
               </span>
-              <span>AI VIDEO ADS FOR DTC BRANDS</span>
+              <span>AI Video Ads for DTC Brands</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-heading text-[1.85rem] xs:text-[2.1rem] sm:text-5xl md:text-[3.25rem] lg:text-[2.6rem] xl:text-[3.25rem] 3xl:text-[3.75rem] font-bold leading-[1.18] sm:leading-[1.2] tracking-tight text-slate-900 py-1">
-              CREATE MORE ADS.<br />
-              TEST MORE IDEAS.<br />
-              <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.12em] tracking-normal">
-                Find What Works.
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-[2.6rem] lg:text-[2.85rem] xl:text-[3.25rem] font-bold !leading-[1.15] tracking-[-0.015em] text-slate-900 flex flex-col gap-y-0.5 sm:gap-y-1">
+              <span className="block">Create More Ads</span>
+              <span className="block">Test More Ideas</span>
+              <span className="block w-fit font-serif italic font-bold text-gradient-brand !leading-[1.15] pr-1.5 mt-0.5">
+                Find What Works
               </span>
             </h1>
 
             {/* Supporting Copy */}
-            <div className="space-y-3.5 text-slate-600 text-[15px] sm:text-base xl:text-lg leading-relaxed max-w-xl">
-              <p className="font-bold text-slate-900 text-base sm:text-lg">
+            <div className="space-y-2.5 text-slate-600 text-xs sm:text-sm md:text-[14.5px] leading-relaxed max-w-xl font-normal">
+              <p className="font-semibold text-slate-900 text-sm sm:text-base">
                 Your product deserves more than the same 2–3 ads.
               </p>
               <p>
                 Quickupp AI Studio creates conversion-focused AI video ads for DTC and e-commerce brands without the traditional production overhead of expensive shoots, creators, locations and production teams.
               </p>
-              <div className="flex items-start gap-2 text-xs sm:text-sm font-semibold text-purple-900 pt-1">
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] font-medium text-purple-900 pt-0.5">
                 <CheckCircle2 className="w-4 h-4 mt-0.5 text-emerald-600 shrink-0" />
                 <span>Create more creative variations for Meta, Instagram, TikTok and other short-form channels.</span>
               </div>
             </div>
 
             {/* CTAs & Microcopy */}
-            <div className="w-full pt-2 flex flex-col space-y-3">
+            <div className="w-full pt-1 flex flex-col space-y-3">
               <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-stretch sm:items-center lg:items-stretch xl:items-center gap-3">
                 <Link
                   href="#audit-form"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-brand px-6 py-3.5 text-sm font-bold text-white shadow-md glow-neon hover:brightness-110 active:scale-95 transition-all text-center"
                 >
-                  <span>GET YOUR FREE CREATIVE AUDIT →</span>
+                  <span>Get Free Creative Audit →</span>
                 </Link>
 
                 <Link
@@ -75,7 +75,7 @@ export default function Hero() {
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-800 shadow-xs hover:border-purple-400 hover:text-purple-700 hover:bg-purple-50/50 active:scale-95 transition-all text-center"
                 >
                   <Play className="w-4 h-4 text-purple-600 fill-purple-600" />
-                  <span>VIEW OUR WORK →</span>
+                  <span>View Our Work →</span>
                 </Link>
               </div>
 
@@ -102,46 +102,46 @@ export default function Hero() {
               <div className="grid grid-cols-3 gap-2.5 xs:gap-3 sm:gap-4 items-center">
                 
                 {/* [ VIDEO 01 ] */}
-                <div className="relative flex flex-col items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#180f2b] to-[#0a0513] border border-purple-400/30 p-2 sm:p-4 xl:p-6 shadow-lg hover:border-pink-400/60 transition-all duration-200 aspect-[9/14] w-full">
-                  <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3.5 text-center my-auto">
-                    <div className="h-9 w-9 xs:h-10 xs:w-10 sm:h-13 sm:w-13 rounded-full bg-pink-500/15 border border-pink-400/40 flex items-center justify-center text-pink-400 shadow-md">
-                      <Play className="w-4 h-4 sm:w-6 sm:h-6 fill-current ml-0.5" />
+                <div className="relative flex flex-col items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#180f2b] to-[#0a0513] border border-purple-400/30 p-2 sm:p-4 xl:p-5 shadow-lg hover:border-pink-400/60 transition-all duration-200 aspect-[9/13] w-full">
+                  <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center my-auto">
+                    <div className="h-9 w-9 xs:h-10 xs:w-10 sm:h-12 sm:w-12 rounded-full bg-pink-500/15 border border-pink-400/40 flex items-center justify-center text-pink-400 shadow-md">
+                      <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-0.5" />
                     </div>
                     <div className="space-y-1">
-                      <span className="font-mono text-[9px] xs:text-[10px] sm:text-xs xl:text-sm font-bold text-white tracking-wide sm:tracking-wider whitespace-nowrap bg-white/10 px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-md border border-white/15 inline-block">
+                      <span className="font-mono text-[9px] xs:text-[10px] sm:text-xs font-bold text-white tracking-wide whitespace-nowrap bg-white/10 px-1.5 sm:px-2.5 py-0.5 rounded-md border border-white/15 inline-block">
                         [ VIDEO 01 ]
                       </span>
-                      <p className="text-[10px] sm:text-[11px] text-pink-300 font-medium pt-1">AI UGC</p>
+                      <p className="text-[10px] sm:text-xs text-pink-300 font-medium pt-0.5">AI UGC</p>
                     </div>
                   </div>
                 </div>
 
                 {/* [ VIDEO 02 ] */}
-                <div className="relative flex flex-col items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#180f2b] to-[#0a0513] border border-purple-400/30 p-2 sm:p-4 xl:p-6 shadow-lg hover:border-purple-400/60 transition-all duration-200 aspect-[9/14] w-full">
-                  <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3.5 text-center my-auto">
-                    <div className="h-9 w-9 xs:h-10 xs:w-10 sm:h-13 sm:w-13 rounded-full bg-purple-500/15 border border-purple-400/40 flex items-center justify-center text-purple-300 shadow-md">
-                      <Play className="w-4 h-4 sm:w-6 sm:h-6 fill-current ml-0.5" />
+                <div className="relative flex flex-col items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#180f2b] to-[#0a0513] border border-purple-400/30 p-2 sm:p-4 xl:p-5 shadow-lg hover:border-purple-400/60 transition-all duration-200 aspect-[9/13] w-full">
+                  <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center my-auto">
+                    <div className="h-9 w-9 xs:h-10 xs:w-10 sm:h-12 sm:w-12 rounded-full bg-purple-500/15 border border-purple-400/40 flex items-center justify-center text-purple-300 shadow-md">
+                      <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-0.5" />
                     </div>
                     <div className="space-y-1">
-                      <span className="font-mono text-[9px] xs:text-[10px] sm:text-xs xl:text-sm font-bold text-white tracking-wide sm:tracking-wider whitespace-nowrap bg-white/10 px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-md border border-white/15 inline-block">
+                      <span className="font-mono text-[9px] xs:text-[10px] sm:text-xs font-bold text-white tracking-wide whitespace-nowrap bg-white/10 px-1.5 sm:px-2.5 py-0.5 rounded-md border border-white/15 inline-block">
                         [ VIDEO 02 ]
                       </span>
-                      <p className="text-[10px] sm:text-[11px] text-purple-300 font-medium pt-1">AI Avatar</p>
+                      <p className="text-[10px] sm:text-xs text-purple-300 font-medium pt-0.5">AI Avatar</p>
                     </div>
                   </div>
                 </div>
 
                 {/* [ VIDEO 03 ] */}
-                <div className="relative flex flex-col items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#180f2b] to-[#0a0513] border border-purple-400/30 p-2 sm:p-4 xl:p-6 shadow-lg hover:border-cyan-400/60 transition-all duration-200 aspect-[9/14] w-full">
-                  <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3.5 text-center my-auto">
-                    <div className="h-9 w-9 xs:h-10 xs:w-10 sm:h-13 sm:w-13 rounded-full bg-cyan-500/15 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-md">
-                      <Play className="w-4 h-4 sm:w-6 sm:h-6 fill-current ml-0.5" />
+                <div className="relative flex flex-col items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#180f2b] to-[#0a0513] border border-purple-400/30 p-2 sm:p-4 xl:p-5 shadow-lg hover:border-cyan-400/60 transition-all duration-200 aspect-[9/13] w-full">
+                  <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center my-auto">
+                    <div className="h-9 w-9 xs:h-10 xs:w-10 sm:h-12 sm:w-12 rounded-full bg-cyan-500/15 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-md">
+                      <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-0.5" />
                     </div>
                     <div className="space-y-1">
-                      <span className="font-mono text-[9px] xs:text-[10px] sm:text-xs xl:text-sm font-bold text-white tracking-wide sm:tracking-wider whitespace-nowrap bg-white/10 px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-md border border-white/15 inline-block">
+                      <span className="font-mono text-[9px] xs:text-[10px] sm:text-xs font-bold text-white tracking-wide whitespace-nowrap bg-white/10 px-1.5 sm:px-2.5 py-0.5 rounded-md border border-white/15 inline-block">
                         [ VIDEO 03 ]
                       </span>
-                      <p className="text-[10px] sm:text-[11px] text-cyan-300 font-medium pt-1">Product Video</p>
+                      <p className="text-[10px] sm:text-xs text-cyan-300 font-medium pt-0.5">Product Video</p>
                     </div>
                   </div>
                 </div>
@@ -149,8 +149,8 @@ export default function Hero() {
               </div>
 
               {/* Small text below videos */}
-              <div className="mt-5 text-center">
-                <p className="text-[10px] xs:text-[11px] sm:text-sm font-semibold tracking-wide sm:tracking-wider leading-relaxed text-purple-950/80 font-mono bg-purple-50/90 py-2 px-3 sm:px-4 rounded-2xl sm:rounded-full border border-purple-200/70 inline-block shadow-2xs">
+              <div className="mt-4 text-center">
+                <p className="text-[10px] xs:text-[11px] sm:text-xs font-semibold tracking-wide leading-relaxed text-slate-700 bg-purple-50/90 py-1.5 px-3 sm:px-4 rounded-full border border-purple-200/70 inline-block shadow-2xs">
                   AI UGC • AI Avatar • Product Video • Hyper-Realistic • Digital Twin
                 </p>
               </div>

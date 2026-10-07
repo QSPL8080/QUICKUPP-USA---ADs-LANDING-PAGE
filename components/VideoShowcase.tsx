@@ -141,14 +141,14 @@ export default function VideoShowcase() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-8 sm:mb-12">
-          <span className="eyebrow">
+          <span className="eyebrow text-[11px] sm:text-xs">
             <Film className="w-3.5 h-3.5 text-purple-600" />
-            <span>05 — VIDEO SHOWCASE</span>
+            <span>05 — Video Showcase</span>
           </span>
-          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
-            CONVERTING VIDEO ADS <span className="font-serif italic font-normal text-gradient-brand inline-block pr-1.5 text-[1.08em] tracking-normal">In Action</span>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 !leading-[1.2] tracking-tight">
+            Converting Video Ads <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">In Action</span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base md:text-lg">
+          <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
             Explore conversion-focused DTC ad examples engineered for high ROAS on short-form video feeds.
           </p>
         </div>
@@ -254,15 +254,9 @@ export default function VideoShowcase() {
                 </div>
 
                 {/* Native Ad Callout */}
-                <div className="space-y-1.5">
+                <div className="space-y-1">
                   <div className="bg-black/70 backdrop-blur-md rounded-lg p-2 border border-white/10 text-[10px] text-white">
                     <span className="font-bold text-purple-300">{ad.title}</span>
-                  </div>
-                  <div
-                    className={`flex items-center justify-between p-1.5 px-2 rounded-md text-white font-bold text-[10px] shadow-sm ${ad.ctaColor}`}
-                  >
-                    <span>{ad.ctaText}</span>
-                    <ChevronRight className="w-3 h-3" />
                   </div>
                 </div>
               </div>

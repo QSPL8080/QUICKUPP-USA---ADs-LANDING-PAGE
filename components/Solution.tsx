@@ -11,15 +11,15 @@ export default function Solution() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
-          <span className="eyebrow">
+          <span className="eyebrow text-[11px] sm:text-xs">
             <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-            <span>INTRODUCING QUICKUPP AI STUDIO</span>
+            <span>Introducing Quickupp AI Studio</span>
           </span>
 
-          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
-            ONE PRODUCT.<br />
-            <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
-              More creative possibilities.
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold !leading-[1.2] tracking-tight text-slate-900">
+            One Product<br />
+            <span className="font-serif italic font-bold text-gradient-brand inline-block pr-1.5">
+              More creative possibilities
             </span>
           </h2>
 
@@ -43,7 +43,7 @@ export default function Solution() {
                 </div>
               </div>
               <h3 className="font-heading text-lg font-bold text-slate-900 mb-2 group-hover:text-purple-700 transition-colors">
-                MORE HOOKS
+                More Hooks
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
                 Different opening angles designed to stop the scroll.
@@ -63,7 +63,7 @@ export default function Solution() {
                 </div>
               </div>
               <h3 className="font-heading text-lg font-bold text-slate-900 mb-2 group-hover:text-pink-600 transition-colors">
-                MORE CONCEPTS
+                More Concepts
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
                 Different creative ideas built around the same product.
@@ -83,7 +83,7 @@ export default function Solution() {
                 </div>
               </div>
               <h3 className="font-heading text-lg font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">
-                MORE FORMATS
+                More Formats
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
                 UGC, avatar, product-focused, lifestyle, cinematic and more.
@@ -103,7 +103,7 @@ export default function Solution() {
                 </div>
               </div>
               <h3 className="font-heading text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
-                MORE VARIATIONS
+                More Variations
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
                 Test different messaging, visuals, offers and storytelling.
@@ -123,7 +123,7 @@ export default function Solution() {
                 </div>
               </div>
               <h3 className="font-heading text-lg sm:text-xl font-bold text-white mb-2">
-                MORE OPPORTUNITIES TO WIN
+                More Opportunities to Win
               </h3>
               <p className="text-sm sm:text-base text-purple-100 leading-relaxed">
                 Give your advertising team more creative options to test.
@@ -135,7 +135,7 @@ export default function Solution() {
                 href="#audit-form"
                 className="text-xs font-bold text-pink-300 hover:text-white inline-flex items-center gap-1 transition-colors"
               >
-                <span>GET YOUR FREE AUDIT →</span>
+                <span>Get Your Free Audit →</span>
               </Link>
             </div>
           </div>
