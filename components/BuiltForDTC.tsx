@@ -2,6 +2,11 @@
 
 import React from "react";
 import { Sparkles, HeartPulse, Shirt, Gem, Coffee, Home, Box, Store } from "lucide-react";
+import StockPhoto from "@/components/StockPhoto";
+import { PHOTOS } from "@/lib/photos";
+
+// Photo for each industry card, in card order
+const ART = [PHOTOS.beauty, PHOTOS.wellness, PHOTOS.fashion, PHOTOS.jewelry, PHOTOS.food, PHOTOS.pet, PHOTOS.ecommerce];
 
 const industries = [
   {
@@ -80,21 +85,35 @@ export default function BuiltForDTC() {
             return (
               <div
                 key={item.title}
-                className={`rounded-2xl border border-slate-200/90 bg-white p-5 lg:p-6 shadow-xs hover:border-purple-300 hover:shadow-md transition-all group ${
-                  isLast ? "sm:col-span-2 lg:col-span-3 xl:col-span-2" : ""
+                className={`overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 lg:p-6 shadow-xs hover:border-purple-300 hover:shadow-md transition-all group ${
+                  isLast ? "sm:col-span-2 lg:col-span-3 xl:col-span-2 sm:flex sm:items-stretch sm:p-0 lg:p-0" : ""
                 }`}
               >
+                {/* Photo: 16:10 on top, or a side panel on the wide card */}
                 <div
-                  className={`h-11 w-11 rounded-xl flex items-center justify-center mb-4 border group-hover:scale-110 transition-transform ${item.color}`}
+                  className={`relative -mx-5 -mt-5 lg:-mx-6 lg:-mt-6 mb-4 aspect-[16/10] overflow-hidden bg-slate-100 ${
+                    isLast ? "sm:m-0 lg:m-0 sm:aspect-auto sm:w-[45%] sm:min-h-[200px] sm:shrink-0" : ""
+                  }`}
                 >
-                  <Icon className="w-5 h-5" />
+                  <StockPhoto
+                    photo={ART[idx] ?? PHOTOS.ecommerce}
+                    sizes={isLast ? "(min-width: 640px) 45vw, 100vw" : "(min-width: 1280px) 300px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
+                    className="transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div
+                    className={`absolute left-4 lg:left-5 bottom-3 h-9 w-9 rounded-xl flex items-center justify-center border bg-white/90 backdrop-blur ${item.color}`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </div>
                 </div>
-                <h3 className="font-heading text-sm sm:text-base font-bold text-slate-900 mb-1.5">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {item.desc}
-                </p>
+                <div className={isLast ? "sm:flex sm:flex-col sm:justify-center sm:p-6 lg:p-8" : ""}>
+                  <h3 className="font-heading text-sm sm:text-base font-bold text-slate-900 mb-1.5">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             );
           })}

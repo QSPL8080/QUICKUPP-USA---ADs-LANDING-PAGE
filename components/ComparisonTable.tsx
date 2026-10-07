@@ -3,6 +3,8 @@
 import React from "react";
 import { Scale, Sparkles, Check, X } from "lucide-react";
 
+import SectionBg from "@/components/SectionBg";
+import { SECTION_BG } from "@/lib/photos";
 const comparisonRows = [
   {
     traditional: "Find creators",
@@ -40,7 +42,8 @@ const comparisonRows = [
 
 export default function ComparisonTable() {
   return (
-    <section id="comparison" className="py-14 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-purple-100/80 relative">
+    <section id="comparison" className="py-14 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-purple-100/80 relative isolate">
+      <SectionBg photo={SECTION_BG.comparison} opacity={0.2} />
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

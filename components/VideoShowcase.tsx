@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Film, ArrowRight, Volume2, VolumeX, Sparkles, ChevronRight, Gift, Play } from "lucide-react";
 
+import SectionBg from "@/components/SectionBg";
+import { SECTION_BG } from "@/lib/photos";
 interface AdItem {
   id: string;
   category: string;
@@ -136,7 +138,8 @@ export default function VideoShowcase() {
       : adsData.filter((ad) => ad.category === activeTab);
 
   return (
-    <section id="showcase" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-purple-100/80 relative">
+    <section id="showcase" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-purple-100/80 relative isolate">
+      <SectionBg photo={SECTION_BG.showcase} opacity={0.18} />
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -275,8 +278,6 @@ export default function VideoShowcase() {
             </div>
           ))}
         </div>
-
-        <p className="sm:hidden mt-3 text-center text-[11px] font-semibold text-slate-400">Swipe to see more →</p>
 
         {/* CTA below showcase */}
         <div className="mt-8 sm:mt-12 text-center">

@@ -3,6 +3,8 @@
 import React from "react";
 import { Compass, TrendingUp, Layers, Clock, Palette, Share2, Sparkles } from "lucide-react";
 
+import SectionBg from "@/components/SectionBg";
+import { SECTION_BG } from "@/lib/photos";
 const reasons = [
   {
     title: "Creative-First",
@@ -44,7 +46,8 @@ const reasons = [
 
 export default function WhyQuickupp() {
   return (
-    <section id="why-quickupp" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-purple-100/80 relative">
+    <section id="why-quickupp" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-purple-100/80 relative isolate">
+      <SectionBg photo={SECTION_BG.why} opacity={0.26} />
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

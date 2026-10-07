@@ -2,6 +2,17 @@
 
 import React from "react";
 import Link from "next/link";
+import StockPhoto from "@/components/StockPhoto";
+import { PHOTOS, type Photo } from "@/lib/photos";
+
+// Photo for each format card, in card order
+const FORMAT_PHOTOS: Photo[] = [
+  PHOTOS.ugcCreator,
+  PHOTOS.avatarPresenter,
+  PHOTOS.perfumeCinematic,
+  PHOTOS.cartoonCharacter,
+  PHOTOS.digitalTwin,
+];
 import { ArrowRight, Sparkles, Video, UserCheck, Flame, Palette, User } from "lucide-react";
 
 const formats = [
@@ -117,11 +128,22 @@ export default function CreativeFormats() {
             return (
               <div
                 key={item.num}
-                className={`rounded-2xl border border-purple-100 bg-white p-5 sm:p-6 lg:p-7 shadow-xs hover:border-purple-300 hover:shadow-md transition-all flex flex-col justify-between lg:col-span-2 ${
+                className={`group overflow-hidden rounded-2xl border border-purple-100 bg-white p-5 sm:p-6 lg:p-7 shadow-xs hover:border-purple-300 hover:shadow-md transition-all flex flex-col justify-between lg:col-span-2 ${
                   idx === 3 ? "lg:col-start-2" : ""
                 } ${isWide && idx === 4 ? "sm:col-span-2 lg:col-span-2" : ""}`}
               >
                 <div>
+                  {/* Format photo */}
+                  {FORMAT_PHOTOS[idx] && (
+                    <div className="relative -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 lg:-mx-7 lg:-mt-7 mb-5 aspect-[16/10] overflow-hidden bg-slate-100">
+                      <StockPhoto
+                        photo={FORMAT_PHOTOS[idx]}
+                        sizes="(min-width: 1024px) 400px, (min-width: 640px) 100vw, 100vw"
+                        className="transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                  )}
+
                   <div className="flex items-center justify-between mb-4">
                     <span className={`px-2.5 py-1 rounded-md font-mono text-xs font-bold border ${item.badgeColor}`}>
                       {item.num}

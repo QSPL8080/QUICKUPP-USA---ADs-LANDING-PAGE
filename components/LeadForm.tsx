@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Sparkles, ArrowRight, Lock, Clock, CheckCircle2, Check, Calendar, ExternalLink } from "lucide-react";
 
+import SectionBg from "@/components/SectionBg";
+import { SECTION_BG } from "@/lib/photos";
 export default function LeadForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -19,22 +21,6 @@ export default function LeadForm() {
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  // Calendly reports its content height via postMessage — grow the iframe to fit
-  // so the booking widget is never clipped (phones show a much taller layout).
-  const [calendlyHeight, setCalendlyHeight] = useState<number | null>(null);
-  useEffect(() => {
-    const onMessage = (e: MessageEvent) => {
-      if (typeof e.origin !== "string" || !e.origin.includes("calendly.com")) return;
-      const data = e.data as { event?: string; payload?: { height?: string } } | undefined;
-      if (data?.event === "calendly.page_height" && data.payload?.height) {
-        const h = parseInt(data.payload.height, 10);
-        if (!Number.isNaN(h) && h > 0) setCalendlyHeight(h);
-      }
-    };
-    window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
-  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -71,7 +57,8 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50/80 via-purple-50/30 to-white relative overflow-hidden">
+    <section id="contact" className="py-10 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-50/80 via-purple-50/30 to-white relative overflow-hidden isolate">
+      <SectionBg photo={SECTION_BG.contact} opacity={0.24} />
       {/* Anchor target for legacy audit-form links */}
       <span id="audit-form" aria-hidden="true" className="absolute top-0 left-0" />
       {/* Soft Background Wave / Blur Atmosphere */}
@@ -104,11 +91,11 @@ export default function LeadForm() {
           {/* ─────────────────────────────────────────────────────────────
               LEFT COLUMN: CONTACT FORM (6 Cols)
              ───────────────────────────────────────────────────────────── */}
-          <div className="lg:col-span-6 min-w-0 rounded-2xl sm:rounded-3xl border border-purple-100/90 bg-white p-4 xs:p-5 sm:p-8 md:p-9 shadow-xl shadow-purple-900/5 flex flex-col justify-between">
-            <form onSubmit={handleSubmit} className="space-y-4 flex flex-col h-full justify-between">
-              <div className="space-y-4">
+          <div className="lg:col-span-6 min-w-0 rounded-2xl sm:rounded-3xl border border-purple-100/90 bg-white p-4 xs:p-5 sm:p-6 lg:p-7 shadow-xl shadow-purple-900/5 flex flex-col justify-between">
+            <form onSubmit={handleSubmit} className="space-y-3 flex flex-col h-full justify-between">
+              <div className="space-y-3">
                 {/* Row 1: Name & Work Email */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Name*
@@ -141,7 +128,7 @@ export default function LeadForm() {
                 </div>
 
                 {/* Row 2: Phone & Company */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Phone*
@@ -174,7 +161,7 @@ export default function LeadForm() {
                 </div>
 
                 {/* Row 3: Website & Industry */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Website
@@ -214,7 +201,7 @@ export default function LeadForm() {
                 </div>
 
                 {/* Row 4: What do you need & Monthly creative requirement */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       What do you need?*
@@ -264,7 +251,7 @@ export default function LeadForm() {
                   <textarea
                     name="projectDetails"
                     required
-                    rows={4}
+                    rows={3}
                     value={formData.projectDetails}
                     onChange={handleChange}
                     placeholder="Tell us what you're selling, who you're targeting, hooks/angles, and what you're trying to achieve..."
@@ -301,7 +288,7 @@ export default function LeadForm() {
               </div>
 
               {/* Submit Button */}
-              <div className="pt-3">
+              <div className="pt-2">
                 <button
                   type="submit"
                   disabled={loading}
@@ -319,20 +306,16 @@ export default function LeadForm() {
           <div className="lg:col-span-6 min-w-0 rounded-2xl sm:rounded-3xl border border-purple-100/90 bg-white overflow-hidden shadow-xl shadow-purple-900/5 flex flex-col h-full">
             
             {/* Top Bar matching screenshot */}
-            <div className="px-4 py-3.5 sm:px-6 sm:py-4 border-b border-slate-100 flex items-center justify-between gap-3 bg-slate-50/50 shrink-0">
+            <div className="px-4 py-3.5 sm:px-6 sm:py-4 border-b border-slate-100 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 bg-slate-50/50 shrink-0">
               <div className="flex items-center gap-2.5 text-left min-w-0">
                 <div className="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center text-white shrink-0 shadow-xs">
                   <Calendar className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="text-[13px] sm:text-sm font-bold text-slate-900 leading-tight">
-                    <span className="sm:hidden">30-Min Strategy Call</span>
-                    <span className="hidden sm:inline">Book a 30-Min Strategy Call</span>
+                    Book a 30-Min Strategy Call
                   </h4>
-                  <p className="text-[11px] text-slate-500 truncate">
-                    <span className="xs:hidden">Free · Pick a time</span>
-                    <span className="hidden xs:inline">Pick a time that works for you · Free</span>
-                  </p>
+                  <p className="text-[11px] text-slate-500">Pick a time that works for you · Free</p>
                 </div>
               </div>
 
@@ -343,8 +326,7 @@ export default function LeadForm() {
                 aria-label="Open booking page in a new tab"
                 className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-[11px] font-semibold text-purple-700 hover:text-purple-800 bg-purple-50 hover:bg-purple-100 px-2.5 sm:px-3 py-1.5 rounded-lg transition-all"
               >
-                <span className="sm:hidden">Open</span>
-                <span className="hidden sm:inline">Open in New Tab</span>
+                <span>Open in New Tab</span>
                 <ExternalLink className="w-3 h-3 shrink-0" />
               </a>
             </div>
@@ -357,10 +339,7 @@ export default function LeadForm() {
                 frameBorder="0"
                 loading="lazy"
                 title="Quickupp AI Studio - 30 Min Strategy Call"
-                style={calendlyHeight ? { height: Math.max(calendlyHeight, 560) } : undefined}
-                className={`block w-full border-0 transition-[height] duration-300 ${
-                  calendlyHeight ? "" : "h-[760px] sm:h-[720px] lg:h-full lg:min-h-[680px]"
-                }`}
+                className="block w-full border-0 h-[620px] sm:h-[600px] lg:h-full lg:min-h-[540px]"
               />
             </div>
           </div>

@@ -4,12 +4,15 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Play, Volume2, VolumeX, ShieldCheck, CheckCircle2, Sparkles, ChevronRight, Gift } from "lucide-react";
 
+import SectionBg from "@/components/SectionBg";
+import { SECTION_BG } from "@/lib/photos";
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-gradient-to-b from-purple-50/60 via-white to-slate-50/50 pt-24 pb-14 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 3xl:pt-40 border-b border-purple-100/80"
+      className="relative overflow-hidden bg-gradient-to-b from-purple-50/60 via-white to-slate-50/50 pt-24 pb-14 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 3xl:pt-40 border-b border-purple-100/80 isolate"
     >
+      <SectionBg photo={SECTION_BG.hero} opacity={0.3} />
       {/* Background Atmosphere Lights */}
       <div
         aria-hidden="true"

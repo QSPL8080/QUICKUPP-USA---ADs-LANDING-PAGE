@@ -4,9 +4,12 @@ import React from "react";
 import Link from "next/link";
 import { Zap, Lightbulb, Layers, Sliders, Trophy, ArrowRight, Sparkles } from "lucide-react";
 
+import SectionBg from "@/components/SectionBg";
+import { SECTION_BG } from "@/lib/photos";
 export default function Solution() {
   return (
-    <section id="solution" className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-purple-50/30 via-white to-slate-50/50 border-b border-purple-100/80 relative">
+    <section id="solution" className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-purple-50/30 via-white to-slate-50/50 border-b border-purple-100/80 relative isolate">
+      <SectionBg photo={SECTION_BG.solution} opacity={0.28} />
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

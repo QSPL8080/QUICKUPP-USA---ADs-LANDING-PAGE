@@ -4,12 +4,15 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 
+import SectionBg from "@/components/SectionBg";
+import { SECTION_BG } from "@/lib/photos";
 export default function FinalCta() {
   return (
     <section
       id="final-cta"
-      className="py-16 sm:py-24 lg:py-28 bg-gradient-to-b from-[#0e081e] via-[#160a30] to-[#0a0518] text-white relative overflow-hidden"
+      className="py-16 sm:py-24 lg:py-28 bg-gradient-to-b from-[#0e081e] via-[#160a30] to-[#0a0518] text-white relative overflow-hidden isolate"
     >
+      <SectionBg photo={SECTION_BG.finalCta} opacity={0.45} dark />
       {/* Radiant Glow Lights */}
       <div
         aria-hidden="true"
