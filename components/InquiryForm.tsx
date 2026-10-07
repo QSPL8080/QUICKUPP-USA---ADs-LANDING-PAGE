@@ -244,11 +244,10 @@ export default function InquiryForm({
         {/* Project Details Textarea */}
         <div>
           <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-            Project details*
+            Project details <span className="text-[11px] font-normal text-slate-400">(Optional)</span>
           </label>
           <textarea
             name="projectDetails"
-            required
             rows={3}
             value={formData.projectDetails}
             onChange={handleChange}
