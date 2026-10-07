@@ -4,7 +4,13 @@
   photo and swap the URL for a /public/images path.
 */
 
-export type Photo = { id: string; alt: string; position?: string };
+export type Photo = {
+  id: string;
+  alt: string;
+  position?: string;
+  /** "contain": show the whole photo (no cropping) over a blurred copy of itself — for portrait photos in wide frames */
+  fit?: "cover" | "contain";
+};
 
 export const PHOTOS = {
   // Creative formats
@@ -12,14 +18,14 @@ export const PHOTOS = {
   avatarPresenter: { id: "1655199153917-b38b9af8618a", alt: "Presenter in a suit speaking to a studio camera", position: "50% 30%" },
   perfumeCinematic: { id: "1615160460366-2c9a41771b51", alt: "Glass perfume bottle reflected on a glossy teal surface", position: "50% 55%" },
   cartoonCharacter: { id: "1740252117070-7aa2955b25f8", alt: "Playful 3D toy character on a pink background", position: "50% 35%" },
-  digitalTwin: { id: "1634986666676-ec8fd927c23d", alt: "Neon holographic sculpture of a head", position: "50% 35%" },
+  digitalTwin: { id: "1677442135730-64f105e0ea05", alt: "A face looking at its digital wireframe twin" }, // landscape, fits the card
 
   // Industries
   beauty: { id: "1631730486572-226d1f595b68", alt: "Rose-gold skincare and makeup products on a pink background" },
   wellness: { id: "1664956618021-73c47736845e", alt: "Supplement capsules spilling from a bottle beside greenery" },
   fashion: { id: "1490481651871-ab68de25d43d", alt: "Neutral-toned clothes on wooden hangers" },
   jewelry: { id: "1605100804763-247f67b3557e", alt: "Diamond ring on a dark background" },
-  food: { id: "1517701550927-30cf4ba1dba5", alt: "Iced latte in a glass" },
+  food: { id: "1461023058943-07fcbe16d735", alt: "Iced latte on a café table" }, // landscape, fits the card
   pet: { id: "1715409555194-8c1e57d0b264", alt: "Brown dog resting on a rug at home", position: "50% 40%" },
   ecommerce: { id: "1449247666642-264389f5f5b1", alt: "Person packing an online order into a cardboard box" },
 } satisfies Record<string, Photo>;

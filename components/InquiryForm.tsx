@@ -30,17 +30,17 @@ const EMPTY: InquiryData = {
   serviceNeeded: "",
   requirement: "",
   projectDetails: "",
-  agreed: true,
+  agreed: false,
 };
 
 export default function InquiryForm({
   layout = "section",
-  defaultAgreed = true,
+  defaultAgreed = false,
   onSuccess,
 }: {
   /** "section": fields go single-column on small laptops (narrow column); "popup": two columns from 640px */
   layout?: "section" | "popup";
-  /** Whether the agreement checkbox starts ticked (the popup starts unticked) */
+  /** Whether the agreement checkbox starts ticked (unticked by default, in both the popup and the Contact section) */
   defaultAgreed?: boolean;
   onSuccess?: () => void;
 }) {
