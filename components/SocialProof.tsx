@@ -1,64 +1,11 @@
 "use client";
 
 import React from "react";
-import { ShoppingBag, Instagram, Video, Box, Mail, BarChart2 } from "lucide-react";
 
 export default function SocialProof() {
   return (
     <section id="social-proof" className="py-8 sm:py-10 bg-slate-50/70 border-b border-purple-100/80">
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
-        
-        {/* Heading */}
-        <div className="text-center mb-6">
-          <p className="text-[10px] xs:text-xs font-mono font-bold tracking-wider sm:tracking-widest text-slate-500 uppercase">
-            CREATIVE BUILT FOR MODERN E-COMMERCE
-          </p>
-        </div>
-
-        {/* Marquee Banner */}
-        <div className="overflow-hidden relative w-full py-3 mb-6 sm:mb-8 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-          <div className="animate-marquee-scroll flex items-center gap-8 sm:gap-12 lg:gap-16 opacity-75 hover:opacity-100 transition-opacity">
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <ShoppingBag className="w-4 h-4 text-purple-600" /> SHOPIFY PLUS
-            </span>
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <Instagram className="w-4 h-4 text-pink-600" /> META ADS
-            </span>
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <Video className="w-4 h-4 text-cyan-600" /> TIKTOK ADS
-            </span>
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <Box className="w-4 h-4 text-amber-600" /> AMAZON DTC
-            </span>
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <Mail className="w-4 h-4 text-emerald-600" /> KLAVIYO
-            </span>
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <BarChart2 className="w-4 h-4 text-indigo-600" /> TRIPLE WHALE
-            </span>
-
-            {/* Repeat for continuous marquee */}
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <ShoppingBag className="w-4 h-4 text-purple-600" /> SHOPIFY PLUS
-            </span>
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <Instagram className="w-4 h-4 text-pink-600" /> META ADS
-            </span>
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <Video className="w-4 h-4 text-cyan-600" /> TIKTOK ADS
-            </span>
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <Box className="w-4 h-4 text-amber-600" /> AMAZON DTC
-            </span>
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <Mail className="w-4 h-4 text-emerald-600" /> KLAVIYO
-            </span>
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 flex items-center gap-2 whitespace-nowrap shrink-0">
-              <BarChart2 className="w-4 h-4 text-indigo-600" /> TRIPLE WHALE
-            </span>
-          </div>
-        </div>
-
         {/* 4 Metric Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 max-w-5xl mx-auto">
           

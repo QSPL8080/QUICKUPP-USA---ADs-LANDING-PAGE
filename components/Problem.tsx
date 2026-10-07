@@ -61,7 +61,6 @@ export default function Problem() {
             <div>
               <div className="flex items-center justify-between pb-4 mb-6 border-b border-rose-200">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-rose-600 font-bold">LEFT —</span>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900">TRADITIONAL PRODUCTION</h3>
                 </div>
               </div>
@@ -106,7 +105,6 @@ export default function Problem() {
             <div>
               <div className="flex items-center justify-between pb-4 mb-6 border-b border-purple-200">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-purple-700 font-bold">RIGHT —</span>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
                     <span>AI CREATIVE WORKFLOW</span>
                     <Sparkles className="w-4 h-4 text-purple-600" />

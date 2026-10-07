@@ -23,16 +23,6 @@ export default function Hero() {
       />
 
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Brand Banner Image */}
-        <div className="w-full mb-6 sm:mb-8 lg:mb-12 flex justify-start">
-          <img
-            src="/images/ai studio logo hero.png"
-            alt="Quickupp AI Studio"
-            className="w-full max-w-[260px] xs:max-w-[300px] sm:max-w-[440px] lg:max-w-[540px] xl:max-w-[620px] 3xl:max-w-[700px] h-auto object-contain select-none"
-          />
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 xl:gap-14 items-center">
           
           {/* Left Hero Content (6 cols) */}
