@@ -50,17 +50,17 @@ const industries = [
 
 export default function BuiltForDTC() {
   return (
-    <section id="who-we-serve" className="py-16 sm:py-24 bg-slate-50/60 border-b border-purple-100/80 relative">
+    <section id="who-we-serve" className="py-14 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-purple-100/80 relative">
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
           <span className="eyebrow">
             <Store className="w-3.5 h-3.5 text-purple-600" />
             <span>08 — BUILT FOR DTC</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
+          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
             CREATIVE FOR CONSUMER BRANDS<br />
             <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
               Built for brands that need more creative.
@@ -73,14 +73,14 @@ export default function BuiltForDTC() {
         </div>
 
         {/* 7 Industry Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5 max-w-6xl 3xl:max-w-7xl mx-auto">
           {industries.map((item, idx) => {
             const Icon = item.icon;
             const isLast = idx === 6;
             return (
               <div
                 key={item.title}
-                className={`rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs hover:border-purple-300 hover:shadow-md transition-all group ${
+                className={`rounded-2xl border border-slate-200/90 bg-white p-5 lg:p-6 shadow-xs hover:border-purple-300 hover:shadow-md transition-all group ${
                   isLast ? "sm:col-span-2 lg:col-span-3 xl:col-span-2" : ""
                 }`}
               >

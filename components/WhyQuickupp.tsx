@@ -44,17 +44,17 @@ const reasons = [
 
 export default function WhyQuickupp() {
   return (
-    <section id="why-quickupp" className="py-16 sm:py-24 bg-white border-b border-purple-100/80 relative">
+    <section id="why-quickupp" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-purple-100/80 relative">
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
           <span className="eyebrow">
             <Sparkles className="w-3.5 h-3.5 text-purple-600" />
             <span>09 — WHY QUICKUPP</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
+          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
             WHY QUICKUPP AI STUDIO<br />
             <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
               More creative. Less production complexity.
@@ -63,13 +63,13 @@ export default function WhyQuickupp() {
         </div>
 
         {/* 6 Premium Icon Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-6xl 3xl:max-w-7xl mx-auto">
           {reasons.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className="rounded-2xl border border-slate-200/90 bg-white p-7 shadow-xs hover:border-purple-300 hover:shadow-md transition-all group"
+                className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 lg:p-7 shadow-xs hover:border-purple-300 hover:shadow-md transition-all group"
               >
                 <div
                   className={`h-12 w-12 rounded-xl flex items-center justify-center mb-5 border group-hover:scale-110 transition-transform ${item.color}`}

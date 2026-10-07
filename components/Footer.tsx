@@ -6,24 +6,24 @@ import { Calendar, MapPin, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-slate-200 bg-slate-950 px-5 pt-12 pb-8 text-slate-300 md:pt-16 overflow-hidden">
+    <footer className="relative border-t border-slate-200 bg-slate-950 px-4 xs:px-5 sm:px-6 lg:px-8 pt-12 pb-8 text-slate-300 md:pt-16 overflow-hidden">
       {/* Radiant Atmosphere Bottom Glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[600px] w-full select-none"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[400px] sm:h-[600px] w-full select-none"
         style={{
           background:
             "radial-gradient(ellipse 110% 80% at 50% 90%, rgba(200, 50, 255, 0.35) 0%, rgba(130, 45, 255, 0.22) 40%, rgba(40, 110, 255, 0.1) 65%, transparent 100%)",
         }}
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl flex flex-col">
+      <div className="relative z-10 mx-auto w-full max-w-6xl 3xl:max-w-7xl flex flex-col">
         
         {/* Top 4-Column Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6 items-start">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-9 md:grid-cols-3 lg:grid-cols-12 lg:gap-6 items-start">
           
           {/* Column 1: Brand Info (3 cols) */}
-          <div className="flex flex-col items-start gap-3.5 lg:col-span-3">
+          <div className="col-span-2 md:col-span-3 lg:col-span-3 flex flex-col items-start gap-3.5">
             <Link href="#top" className="-ml-1 flex items-center transition-opacity hover:opacity-90">
               <img
                 src="/images/logo.png"
@@ -172,7 +172,7 @@ export default function Footer() {
           </div>
 
           {/* Column 5: OUR LOCATIONS (3 cols) */}
-          <div className="flex flex-col gap-3.5 lg:col-span-3">
+          <div className="col-span-2 md:col-span-3 lg:col-span-3 flex flex-col gap-3.5">
             <h3 className="font-heading text-xs font-bold uppercase tracking-wider text-white sm:text-sm">
               OUR LOCATIONS
             </h3>

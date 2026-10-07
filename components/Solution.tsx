@@ -6,17 +6,17 @@ import { Zap, Lightbulb, Layers, Sliders, Trophy, ArrowRight, Sparkles } from "l
 
 export default function Solution() {
   return (
-    <section id="solution" className="py-16 sm:py-24 bg-gradient-to-b from-purple-50/30 via-white to-slate-50/50 border-b border-purple-100/80 relative">
+    <section id="solution" className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-purple-50/30 via-white to-slate-50/50 border-b border-purple-100/80 relative">
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
           <span className="eyebrow">
             <Sparkles className="w-3.5 h-3.5 text-purple-600" />
             <span>INTRODUCING QUICKUPP AI STUDIO</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
+          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
             ONE PRODUCT.<br />
             <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
               More creative possibilities.
@@ -29,10 +29,10 @@ export default function Solution() {
         </div>
 
         {/* 5 Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-6xl 3xl:max-w-7xl mx-auto">
           
           {/* Card 01 */}
-          <div className="rounded-2xl border border-purple-100/90 bg-white/95 p-6 sm:p-7 shadow-xs hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between group">
+          <div className="rounded-2xl border border-purple-100/90 bg-white/95 p-5 sm:p-6 lg:p-7 shadow-xs hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-black tracking-wider px-2.5 py-1 rounded-md border text-purple-700 bg-purple-100/90 border-purple-200">
@@ -52,7 +52,7 @@ export default function Solution() {
           </div>
 
           {/* Card 02 */}
-          <div className="rounded-2xl border border-purple-100/90 bg-white/95 p-6 sm:p-7 shadow-xs hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between group">
+          <div className="rounded-2xl border border-purple-100/90 bg-white/95 p-5 sm:p-6 lg:p-7 shadow-xs hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-black tracking-wider px-2.5 py-1 rounded-md border text-pink-700 bg-pink-100/90 border-pink-200">
@@ -72,7 +72,7 @@ export default function Solution() {
           </div>
 
           {/* Card 03 */}
-          <div className="rounded-2xl border border-purple-100/90 bg-white/95 p-6 sm:p-7 shadow-xs hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between group">
+          <div className="rounded-2xl border border-purple-100/90 bg-white/95 p-5 sm:p-6 lg:p-7 shadow-xs hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-black tracking-wider px-2.5 py-1 rounded-md border text-cyan-700 bg-cyan-100/90 border-cyan-200">
@@ -92,7 +92,7 @@ export default function Solution() {
           </div>
 
           {/* Card 04 */}
-          <div className="rounded-2xl border border-purple-100/90 bg-white/95 p-6 sm:p-7 shadow-xs hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between group">
+          <div className="rounded-2xl border border-purple-100/90 bg-white/95 p-5 sm:p-6 lg:p-7 shadow-xs hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-black tracking-wider px-2.5 py-1 rounded-md border text-emerald-700 bg-emerald-100/90 border-emerald-200">
@@ -112,7 +112,7 @@ export default function Solution() {
           </div>
 
           {/* Card 05 (Spans 2 cols on lg) */}
-          <div className="rounded-2xl border border-purple-300/80 bg-gradient-to-r from-purple-900 via-indigo-950 to-slate-950 p-6 sm:p-7 text-white shadow-md md:col-span-2 lg:col-span-2 flex flex-col justify-between group">
+          <div className="rounded-2xl border border-purple-300/80 bg-gradient-to-r from-purple-900 via-indigo-950 to-slate-950 p-5 sm:p-6 lg:p-7 text-white shadow-md sm:col-span-2 lg:col-span-2 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-black tracking-wider px-2.5 py-1 rounded-md bg-purple-800 text-purple-200 border border-purple-600">
@@ -129,7 +129,7 @@ export default function Solution() {
                 Give your advertising team more creative options to test.
               </p>
             </div>
-            <div className="mt-6 pt-3 border-t border-purple-800/80 flex items-center justify-between">
+            <div className="mt-6 pt-3 border-t border-purple-800/80 flex flex-wrap items-center justify-between gap-2">
               <span className="text-xs font-mono text-purple-300 font-bold">Quickupp AI Studio</span>
               <Link
                 href="#audit-form"

@@ -5,30 +5,30 @@ import { AlertCircle, Check, X, Sparkles } from "lucide-react";
 
 export default function Problem() {
   return (
-    <section id="problem" className="py-16 sm:py-24 bg-white border-b border-purple-100/80 relative overflow-hidden">
+    <section id="problem" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-purple-100/80 relative overflow-hidden">
       
       {/* Background radial glow with OKLCH */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full opacity-20 blur-3xl"
+        className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 h-64 w-64 sm:h-96 sm:w-96 rounded-full opacity-20 blur-3xl"
         style={{ background: "radial-gradient(circle, oklch(0.68 0.27 350) 0%, transparent 70%)" }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full opacity-20 blur-3xl"
+        className="pointer-events-none absolute right-0 top-1/4 h-64 w-64 sm:h-96 sm:w-96 rounded-full opacity-20 blur-3xl"
         style={{ background: "radial-gradient(circle, oklch(0.65 0.28 305) 0%, transparent 70%)" }}
       />
 
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-12">
           <span className="eyebrow">
             <AlertCircle className="w-3.5 h-3.5 text-rose-600" />
             <span>CREATIVE FATIGUE IS EXPENSIVE.</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
+          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
             YOUR PRODUCT ISN'T THE PROBLEM.<br />
             <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
               Your creative volume might be.
@@ -54,10 +54,10 @@ export default function Problem() {
         </div>
 
         {/* Split-Screen Comparison */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
           
           {/* Left: Traditional Production */}
-          <div className="rounded-2xl border border-rose-200/90 bg-rose-50/40 p-6 sm:p-8 flex flex-col justify-between shadow-xs">
+          <div className="rounded-2xl border border-rose-200/90 bg-rose-50/40 p-5 sm:p-6 lg:p-8 flex flex-col justify-between shadow-xs">
             <div>
               <div className="flex items-center justify-between pb-4 mb-6 border-b border-rose-200">
                 <div>
@@ -66,7 +66,7 @@ export default function Problem() {
                 </div>
               </div>
 
-              <ul className="space-y-3.5 text-sm sm:text-base text-slate-700 font-medium">
+              <ul className="space-y-3 sm:space-y-3.5 text-sm sm:text-base text-slate-700 font-medium">
                 <li className="flex items-center gap-3">
                   <span className="h-6 w-6 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center font-bold shrink-0">✕</span>
                   <span>• Find creators</span>
@@ -100,7 +100,7 @@ export default function Problem() {
           </div>
 
           {/* Right: AI Creative Workflow */}
-          <div className="rounded-2xl border-2 border-purple-400 bg-gradient-to-b from-purple-50/90 via-white to-purple-50/50 p-6 sm:p-8 flex flex-col justify-between shadow-lg relative overflow-hidden">
+          <div className="rounded-2xl border-2 border-purple-400 bg-gradient-to-b from-purple-50/90 via-white to-purple-50/50 p-5 sm:p-6 lg:p-8 flex flex-col justify-between shadow-lg relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-brand"></div>
 
             <div>
@@ -114,7 +114,7 @@ export default function Problem() {
                 </div>
               </div>
 
-              <ul className="space-y-3.5 text-sm sm:text-base text-slate-900 font-semibold">
+              <ul className="space-y-3 sm:space-y-3.5 text-sm sm:text-base text-slate-900 font-semibold">
                 <li className="flex items-center gap-3">
                   <span className="h-6 w-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold shrink-0">✓</span>
                   <span>• Research</span>

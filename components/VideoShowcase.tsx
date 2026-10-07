@@ -136,29 +136,29 @@ export default function VideoShowcase() {
       : adsData.filter((ad) => ad.category === activeTab);
 
   return (
-    <section id="showcase" className="py-16 sm:py-24 bg-white border-b border-purple-100/80 relative">
+    <section id="showcase" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-purple-100/80 relative">
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 mb-12">
+        <div className="max-w-3xl mx-auto text-center space-y-3 mb-8 sm:mb-12">
           <span className="eyebrow">
             <Film className="w-3.5 h-3.5 text-purple-600" />
             <span>05 — VIDEO SHOWCASE</span>
           </span>
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-slate-900 leading-tight tracking-tight">
+          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
             CONVERTING VIDEO ADS <span className="font-serif italic font-normal text-gradient-brand inline-block pr-1.5 text-[1.08em] tracking-normal">In Action</span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base md:text-lg">
             Explore conversion-focused DTC ad examples engineered for high ROAS on short-form video feeds.
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-center gap-2 mb-8 sm:mb-12 overflow-x-auto no-scrollbar snap-x">
           <button
             type="button"
             onClick={() => setActiveTab("all")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
+            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
               activeTab === "all"
                 ? "bg-purple-900 text-white border-purple-900 shadow-sm"
                 : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
@@ -169,7 +169,7 @@ export default function VideoShowcase() {
           <button
             type="button"
             onClick={() => setActiveTab("ugc")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
+            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
               activeTab === "ugc"
                 ? "bg-purple-900 text-white border-purple-900 shadow-sm"
                 : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
@@ -180,7 +180,7 @@ export default function VideoShowcase() {
           <button
             type="button"
             onClick={() => setActiveTab("avatar")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
+            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
               activeTab === "avatar"
                 ? "bg-purple-900 text-white border-purple-900 shadow-sm"
                 : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
@@ -191,7 +191,7 @@ export default function VideoShowcase() {
           <button
             type="button"
             onClick={() => setActiveTab("product")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
+            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
               activeTab === "product"
                 ? "bg-purple-900 text-white border-purple-900 shadow-sm"
                 : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
@@ -202,7 +202,7 @@ export default function VideoShowcase() {
           <button
             type="button"
             onClick={() => setActiveTab("hyper")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
+            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
               activeTab === "hyper"
                 ? "bg-purple-900 text-white border-purple-900 shadow-sm"
                 : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
@@ -213,7 +213,7 @@ export default function VideoShowcase() {
           <button
             type="button"
             onClick={() => setActiveTab("twin")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
+            className={`shrink-0 snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer ${
               activeTab === "twin"
                 ? "bg-purple-900 text-white border-purple-900 shadow-sm"
                 : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-purple-50 hover:text-purple-900"
@@ -224,11 +224,11 @@ export default function VideoShowcase() {
         </div>
 
         {/* Ad Video Cards Grid (No external video/image dependencies) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="-mx-4 px-4 sm:mx-auto sm:px-0 flex sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-6xl 3xl:max-w-7xl overflow-x-auto sm:overflow-visible snap-x snap-mandatory no-scrollbar pb-2 sm:pb-0">
           {filteredAds.map((ad) => (
             <div
               key={ad.id}
-              className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm hover:shadow-lg hover:border-purple-300 transition-all flex flex-col justify-between group"
+              className="w-[78%] xs:w-[72%] shrink-0 snap-center sm:w-auto sm:shrink rounded-2xl border border-slate-200 bg-white p-3 shadow-sm hover:shadow-lg hover:border-purple-300 transition-all flex flex-col justify-between group"
             >
               {/* Ad Mockup Frame */}
               <div className="ad-reel-phone w-full relative p-4 flex flex-col justify-between bg-gradient-to-b from-slate-900 via-purple-950/80 to-black border border-purple-400/30">
@@ -282,14 +282,16 @@ export default function VideoShowcase() {
           ))}
         </div>
 
+        <p className="sm:hidden mt-3 text-center text-[11px] font-semibold text-slate-400">Swipe to see more →</p>
+
         {/* CTA below showcase */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 sm:mt-12 text-center">
           <Link
             href="#audit-form"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-brand px-6 py-3.5 text-sm font-bold text-white shadow-md glow-neon hover:brightness-110 active:scale-95 transition-all"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-brand px-5 sm:px-6 py-3.5 text-[13px] sm:text-sm font-bold text-white text-center shadow-md glow-neon hover:brightness-110 active:scale-95 transition-all"
           >
             <span>GET FREE AUDIT TO UNLOCK THESE FORMATS</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </Link>
         </div>
 

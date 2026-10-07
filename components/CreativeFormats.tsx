@@ -87,17 +87,17 @@ const formats = [
 
 export default function CreativeFormats() {
   return (
-    <section id="services" className="py-16 sm:py-24 bg-slate-50/60 border-b border-purple-100/80 relative">
+    <section id="services" className="py-14 sm:py-20 lg:py-24 bg-slate-50/60 border-b border-purple-100/80 relative">
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
           <span className="eyebrow">
             <Sparkles className="w-3.5 h-3.5 text-purple-600" />
             <span>06 — CREATIVE FORMATS</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
+          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
             CHOOSE YOUR CREATIVE STYLE<br />
             <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
               One Studio. Multiple ways to create.
@@ -110,16 +110,16 @@ export default function CreativeFormats() {
         </div>
 
         {/* 5 Format Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-5 lg:gap-6 max-w-6xl 3xl:max-w-7xl mx-auto">
           {formats.map((item, idx) => {
             const Icon = item.icon;
             const isWide = idx === 3 || idx === 4;
             return (
               <div
                 key={item.num}
-                className={`rounded-2xl border border-purple-100 bg-white p-6 sm:p-7 shadow-xs hover:border-purple-300 hover:shadow-md transition-all flex flex-col justify-between ${
-                  isWide && idx === 4 ? "md:col-span-2 lg:col-span-1" : ""
-                }`}
+                className={`rounded-2xl border border-purple-100 bg-white p-5 sm:p-6 lg:p-7 shadow-xs hover:border-purple-300 hover:shadow-md transition-all flex flex-col justify-between lg:col-span-2 ${
+                  idx === 3 ? "lg:col-start-2" : ""
+                } ${isWide && idx === 4 ? "sm:col-span-2 lg:col-span-2" : ""}`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">

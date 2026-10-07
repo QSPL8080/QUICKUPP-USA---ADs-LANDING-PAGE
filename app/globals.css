@@ -17,6 +17,18 @@
 html {
   scroll-behavior: smooth;
   font-family: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Anchor links land below the fixed header (header height + breathing room) */
+  scroll-padding-top: 80px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (min-width: 640px) {
+  html { scroll-padding-top: 88px; }
+}
+
+@media (min-width: 1024px) {
+  html { scroll-padding-top: 92px; }
 }
 
 body {
@@ -24,6 +36,32 @@ body {
   color: oklch(0.2 0.03 265);
   overflow-x: hidden;
   font-family: 'Mulish', sans-serif;
+}
+
+/* Media never forces horizontal scroll */
+img, video, svg {
+  max-width: 100%;
+}
+
+/* Long words / URLs wrap instead of overflowing on small phones */
+h1, h2, h3, h4, p, li, td, th, label {
+  overflow-wrap: break-word;
+}
+
+/* Prevent iOS Safari from zooming in when a form field is focused */
+@media (max-width: 639px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Hide scrollbars on horizontal swipe rows while keeping them scrollable */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Brand Text and Gradient Utilities (OKLCH) */
@@ -79,12 +117,18 @@ body {
   border: 1px solid oklch(0.7 0.2 305 / 0.3);
   background: oklch(0.96 0.03 300 / 0.9);
   padding: 0.35rem 0.85rem;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: oklch(0.42 0.24 305);
   backdrop-filter: blur(4px);
+  max-width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .eyebrow { font-size: 0.72rem; }
 }
 
 /* Ad Reel Mockup Frame */
@@ -118,6 +162,15 @@ body {
 
 .animate-marquee-scroll:hover {
   animation-play-state: paused;
+}
+
+@media (max-width: 639px) {
+  .animate-marquee-scroll { animation-duration: 18s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee-scroll { animation: none; }
 }
 
 /* Custom Scrollbar */

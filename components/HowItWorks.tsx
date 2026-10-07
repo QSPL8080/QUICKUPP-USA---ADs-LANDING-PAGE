@@ -48,17 +48,17 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="process" className="py-16 sm:py-24 bg-white border-b border-purple-100/80 relative">
+    <section id="process" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-purple-100/80 relative">
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 lg:mb-16">
           <span className="eyebrow">
             <Workflow className="w-3.5 h-3.5 text-purple-600" />
             <span>OUR CREATIVE PROCESS</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
+          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
             FROM PRODUCT<br />
             <span className="font-serif italic font-normal text-gradient-brand inline-block pr-3 text-[1.1em] tracking-normal">
               To performance-ready creative.
@@ -72,11 +72,11 @@ export default function HowItWorks() {
         </div>
 
         {/* 8-Step Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 max-w-6xl 3xl:max-w-7xl mx-auto">
           {steps.map((step, idx) => (
             <div
               key={step.num}
-              className={`rounded-2xl p-6 border transition-all flex flex-col justify-between ${
+              className={`rounded-2xl p-5 lg:p-6 border transition-all flex flex-col justify-between ${
                 idx === 7
                   ? "bg-gradient-to-b from-purple-900 via-indigo-950 to-slate-950 text-white border-purple-800 shadow-md"
                   : "bg-slate-50/70 border-slate-200/90 text-slate-900 hover:border-purple-300 hover:bg-purple-50/30 shadow-xs"

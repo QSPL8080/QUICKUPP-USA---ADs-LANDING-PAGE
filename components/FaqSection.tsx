@@ -42,17 +42,17 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-16 sm:py-24 bg-white border-b border-purple-100/80 relative">
+    <section id="faq" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-purple-100/80 relative">
       <div className="mx-auto w-full max-w-[1560px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-14">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14">
           <span className="eyebrow">
             <HelpCircle className="w-3.5 h-3.5 text-purple-600" />
             <span>11 — FAQ</span>
           </span>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
+          <h2 className="font-heading text-[1.6rem] xs:text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-5xl font-bold leading-[1.25] tracking-tight text-slate-900 py-1">
             FREQUENTLY ASKED <span className="font-serif italic font-normal text-gradient-brand inline-block pr-2.5 text-[1.08em] tracking-normal">Questions</span>
           </h2>
         </div>
@@ -69,9 +69,10 @@ export default function FaqSection() {
                 <button
                   type="button"
                   onClick={() => toggle(idx)}
-                  className="w-full flex items-center justify-between p-5 text-left font-bold text-slate-900 hover:text-purple-700 transition-colors focus:outline-none"
+                  aria-expanded={isOpen}
+                  className="w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left font-bold text-slate-900 hover:text-purple-700 transition-colors focus:outline-none"
                 >
-                  <span className="text-sm sm:text-base pr-4">{faq.q}</span>
+                  <span className="text-sm sm:text-base">{faq.q}</span>
                   <ChevronDown
                     className={`w-5 h-5 text-purple-600 shrink-0 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
@@ -80,7 +81,7 @@ export default function FaqSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60">
+                  <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 text-[13px] sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60">
                     {faq.a}
                   </div>
                 )}

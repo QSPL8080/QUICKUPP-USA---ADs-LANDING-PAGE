@@ -8,7 +8,21 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    // Full breakpoint scale (defined in order so min-width queries cascade correctly)
+    screens: {
+      xs: "375px", // standard phones (iPhone SE 2/3, 12–15 mini & up)
+      sm: "640px", // large phones landscape / small tablets
+      md: "768px", // tablets portrait (iPad, Galaxy Tab)
+      lg: "1024px", // tablets landscape / small laptops
+      xl: "1280px", // laptops (1280, 1366, 1440)
+      "2xl": "1536px", // desktops / large laptops
+      "3xl": "1680px", // large desktops (1680, 1920, 2560+)
+    },
     extend: {
+      spacing: {
+        "4.5": "1.125rem",
+        "13": "3.25rem",
+      },
       colors: {
         background: "oklch(1 0 0)",
         foreground: "oklch(0.2 0.03 265)",
@@ -47,6 +61,7 @@ const config: Config = {
         "glow-neon-lg": "0 0 45px oklch(0.65 0.28 305 / 0.4)",
         "glow-cyan": "0 0 25px oklch(0.78 0.18 215 / 0.25)",
         "2xs": "0 1px 2px 0 rgba(0, 0, 0, 0.04)",
+        xs: "0 1px 3px 0 rgba(15, 23, 42, 0.06)",
       },
     },
   },
