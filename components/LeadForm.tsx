@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Sparkles, ArrowRight, Lock, Clock, CheckCircle2, Check, Calendar, ExternalLink } from "lucide-react";
 
 export default function LeadForm() {
@@ -19,6 +19,22 @@ export default function LeadForm() {
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  // Calendly reports its content height via postMessage — grow the iframe to fit
+  // so the booking widget is never clipped (phones show a much taller layout).
+  const [calendlyHeight, setCalendlyHeight] = useState<number | null>(null);
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      if (typeof e.origin !== "string" || !e.origin.includes("calendly.com")) return;
+      const data = e.data as { event?: string; payload?: { height?: string } } | undefined;
+      if (data?.event === "calendly.page_height" && data.payload?.height) {
+        const h = parseInt(data.payload.height, 10);
+        if (!Number.isNaN(h) && h > 0) setCalendlyHeight(h);
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -55,18 +71,18 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-24 lg:py-28 bg-gradient-to-b from-slate-50/80 via-purple-50/30 to-white relative overflow-hidden scroll-mt-16">
+    <section id="contact" className="py-12 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50/80 via-purple-50/30 to-white relative overflow-hidden">
       {/* Anchor target for legacy audit-form links */}
-      <span id="audit-form" className="absolute -top-24 left-0" />
+      <span id="audit-form" aria-hidden="true" className="absolute top-0 left-0" />
       {/* Soft Background Wave / Blur Atmosphere */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full blur-[140px] opacity-25"
+        className="pointer-events-none absolute -left-40 top-1/4 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] rounded-full blur-[140px] opacity-25"
         style={{ background: "radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%)" }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 bottom-10 h-[500px] w-[500px] rounded-full blur-[140px] opacity-20"
+        className="pointer-events-none absolute -right-40 bottom-10 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] rounded-full blur-[140px] opacity-20"
         style={{ background: "radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, transparent 70%)" }}
       />
 
@@ -83,16 +99,16 @@ export default function LeadForm() {
         </div>
 
         {/* 2-Column Grid: Left Contact Form | Right Calendly Widget */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-stretch max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-8 items-stretch max-w-6xl 3xl:max-w-7xl mx-auto">
           
           {/* ─────────────────────────────────────────────────────────────
               LEFT COLUMN: CONTACT FORM (6 Cols)
              ───────────────────────────────────────────────────────────── */}
-          <div className="lg:col-span-6 rounded-3xl border border-purple-100/90 bg-white p-6 sm:p-8 md:p-9 shadow-xl shadow-purple-900/5 flex flex-col justify-between">
+          <div className="lg:col-span-6 min-w-0 rounded-2xl sm:rounded-3xl border border-purple-100/90 bg-white p-4 xs:p-5 sm:p-8 md:p-9 shadow-xl shadow-purple-900/5 flex flex-col justify-between">
             <form onSubmit={handleSubmit} className="space-y-4 flex flex-col h-full justify-between">
               <div className="space-y-4">
                 {/* Row 1: Name & Work Email */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Name*
@@ -125,7 +141,7 @@ export default function LeadForm() {
                 </div>
 
                 {/* Row 2: Phone & Company */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Phone*
@@ -158,7 +174,7 @@ export default function LeadForm() {
                 </div>
 
                 {/* Row 3: Website & Industry */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Website
@@ -198,7 +214,7 @@ export default function LeadForm() {
                 </div>
 
                 {/* Row 4: What do you need & Monthly creative requirement */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       What do you need?*
@@ -257,16 +273,16 @@ export default function LeadForm() {
                 </div>
 
                 {/* Legal Checkbox */}
-                <div className="flex items-start gap-2 pt-1 text-[11px] text-slate-500">
+                <div className="flex items-start gap-2 pt-1 text-[11px] sm:text-xs text-slate-500">
                   <input
                     type="checkbox"
                     name="agreed"
                     id="agree-checkbox"
                     checked={formData.agreed}
                     onChange={handleChange}
-                    className="mt-0.5 accent-purple-600 rounded"
+                    className="mt-0.5 h-4 w-4 shrink-0 accent-purple-600 rounded"
                   />
-                  <label htmlFor="agree-checkbox" className="leading-tight cursor-pointer">
+                  <label htmlFor="agree-checkbox" className="leading-relaxed cursor-pointer">
                     I agree to the{" "}
                     <a href="#privacy" className="text-purple-600 underline hover:text-purple-700">
                       Privacy Policy
@@ -300,19 +316,23 @@ export default function LeadForm() {
           {/* ─────────────────────────────────────────────────────────────
               RIGHT COLUMN: CALENDLY EMBED CARD (6 Cols)
              ───────────────────────────────────────────────────────────── */}
-          <div className="lg:col-span-6 rounded-3xl border border-purple-100/90 bg-white overflow-hidden shadow-xl shadow-purple-900/5 flex flex-col h-full">
+          <div className="lg:col-span-6 min-w-0 rounded-2xl sm:rounded-3xl border border-purple-100/90 bg-white overflow-hidden shadow-xl shadow-purple-900/5 flex flex-col h-full">
             
             {/* Top Bar matching screenshot */}
-            <div className="p-4 sm:px-6 sm:py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50 shrink-0">
-              <div className="flex items-center gap-2.5 text-left">
+            <div className="px-4 py-3.5 sm:px-6 sm:py-4 border-b border-slate-100 flex items-center justify-between gap-3 bg-slate-50/50 shrink-0">
+              <div className="flex items-center gap-2.5 text-left min-w-0">
                 <div className="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center text-white shrink-0 shadow-xs">
                   <Calendar className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
-                    Book a 30-Min Strategy Call
+                  <h4 className="text-[13px] sm:text-sm font-bold text-slate-900 leading-tight">
+                    <span className="sm:hidden">30-Min Strategy Call</span>
+                    <span className="hidden sm:inline">Book a 30-Min Strategy Call</span>
                   </h4>
-                  <p className="text-[11px] text-slate-500">Pick a time that works for you · Free</p>
+                  <p className="text-[11px] text-slate-500 truncate">
+                    <span className="xs:hidden">Free · Pick a time</span>
+                    <span className="hidden xs:inline">Pick a time that works for you · Free</span>
+                  </p>
                 </div>
               </div>
 
@@ -320,26 +340,28 @@ export default function LeadForm() {
                 href="https://calendly.com/qsaistudio/quickupp-ai-studio-30-min-strategy-call"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[11px] font-semibold text-purple-700 hover:text-purple-800 bg-purple-50 hover:bg-purple-100 px-3 py-1.5 rounded-lg transition-all"
+                aria-label="Open booking page in a new tab"
+                className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-[11px] font-semibold text-purple-700 hover:text-purple-800 bg-purple-50 hover:bg-purple-100 px-2.5 sm:px-3 py-1.5 rounded-lg transition-all"
               >
-                <span>Open in New Tab</span>
-                <ExternalLink className="w-3 h-3" />
+                <span className="sm:hidden">Open</span>
+                <span className="hidden sm:inline">Open in New Tab</span>
+                <ExternalLink className="w-3 h-3 shrink-0" />
               </a>
             </div>
 
             {/* Calendly Inline Widget with clean hidden scrollbar */}
-            <div className="w-full flex-1 min-h-[580px] lg:min-h-[620px] bg-white relative overflow-hidden">
-              <div className="w-full h-full overflow-y-auto no-scrollbar">
-                <iframe
-                  src="https://calendly.com/qsaistudio/quickupp-ai-studio-30-min-strategy-call?embed_domain=quickuppaistudio.us&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=9333ea"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  scrolling="no"
-                  title="Quickupp AI Studio - 30 Min Strategy Call"
-                  className="w-full h-full min-h-[640px] border-0"
-                />
-              </div>
+            <div className="w-full flex-1 bg-white relative">
+              <iframe
+                src="https://calendly.com/qsaistudio/quickupp-ai-studio-30-min-strategy-call?embed_domain=quickuppaistudio.us&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=9333ea"
+                width="100%"
+                frameBorder="0"
+                loading="lazy"
+                title="Quickupp AI Studio - 30 Min Strategy Call"
+                style={calendlyHeight ? { height: Math.max(calendlyHeight, 560) } : undefined}
+                className={`block w-full border-0 transition-[height] duration-300 ${
+                  calendlyHeight ? "" : "h-[760px] sm:h-[720px] lg:h-full lg:min-h-[680px]"
+                }`}
+              />
             </div>
           </div>
 
@@ -350,7 +372,7 @@ export default function LeadForm() {
       {/* Submission Success Modal */}
       {submitted && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-          <div className="bg-white border border-purple-200 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center space-y-4 shadow-2xl">
+          <div className="bg-white border border-purple-200 rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[90dvh] overflow-y-auto text-center space-y-4 shadow-2xl">
             <div className="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto border border-emerald-300">
               <CheckCircle2 className="w-8 h-8" />
             </div>
