@@ -13,6 +13,7 @@ import FaqSection from "@/components/FaqSection";
 import FinalCta from "@/components/FinalCta";
 import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
+import LeadPopup from "@/components/LeadPopup";
 
 export default function Home() {
   return (
@@ -64,6 +65,9 @@ export default function Home() {
 
       {/* 16 — FOOTER */}
       <Footer />
+
+      {/* Lead popup (same fields as the contact form) */}
+      <LeadPopup />
     </div>
   );
 }
